@@ -432,12 +432,12 @@ class Initiate(object):
 
             if path.isfile(inactive):
                 for line in Helpers.File(inactive).to_list():
-                    if not line.startswith('#'):
+                    if line and not line.startswith('#'):
                         list_content.remove(line)
 
             if path.isfile(invalid):
                 for line in Helpers.File(invalid).to_list():
-                    if not line.startswith('#'):
+                    if line and not line.startswith('#'):
                         list_content.remove(line)
 
             Helpers.File(Settings.file_to_test).write(
