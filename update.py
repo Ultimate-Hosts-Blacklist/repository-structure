@@ -331,8 +331,9 @@ class Initiate(object):
             to_ignore = ['name', 'raw_link']
 
             for index in Settings.informations:
-                if index not in to_ignore and Settings.informations[index] != '':
-                    self.set_info_settings(index)
+                if Settings.informations[index] != '':
+                    if not index == to_ignore[0]:
+                        self.set_info_settings(index)
                 elif index in to_ignore:
                     continue
                 else:
@@ -481,7 +482,7 @@ class Initiate(object):
                 Settings.informations).to_json(
                     Settings.repository_info)
             self.travis_permissions()
-            print(Helpers.Command('ls -al', True).execute())
+
             print(Helpers.Command(command_to_execute, True).execute())
 
             commit_message = 'Update of info.json'
@@ -636,17 +637,16 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
             This method initiate the download.
             """
 
-            if self.link_to_download:
-                request = get(self.link_to_download, stream=True)
+            request = get(self.link_to_download, stream=True)
 
-                if request.status_code == 200:
-                    with open(self.destination, 'wb') as file:
-                        request.raw.decode_content = True
-                        copyfileobj(request.raw, file)
+            if request.status_code == 200:
+                with open(self.destination, 'wb') as file:
+                    request.raw.decode_content = True
+                    copyfileobj(request.raw, file)
 
-                    del request
+                del request
 
-                    return True
+                return True
             return False
 
     class Command(object):
