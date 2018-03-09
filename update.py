@@ -481,7 +481,7 @@ class Initiate(object):
                 Settings.informations).to_json(
                     Settings.repository_info)
             self.travis_permissions()
-
+            print(Helpers.Command('ls -al', True).execute())
             print(Helpers.Command(command_to_execute, True).execute())
 
             commit_message = 'Update of info.json'
