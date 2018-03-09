@@ -195,7 +195,7 @@ class Initiate(object):
         commands = [
             'sudo chown -R travis:travis %s' %
             (build_dir),
-            'sudo chgrp - R travis %s' %
+            'sudo chgrp -R travis %s' %
             (build_dir),
             'sudo chmod -R g+rwX %s' %
             (build_dir),
