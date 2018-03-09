@@ -303,8 +303,6 @@ class Initiate(object):
                     Settings.file_to_test).write(
                         '\n'.join(formated_content),
                         overwrite=True)
-
-                self.travis_permissions()
             elif not Settings.raw_link:
                 print("No raw link found.")
             else:
@@ -316,6 +314,8 @@ class Initiate(object):
                     Settings.current_directory +
                     'tool.py -c',
                     False).execute()
+
+            self.travis_permissions()
 
             return True
         return False
