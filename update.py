@@ -331,7 +331,7 @@ class Initiate(object):
             to_ignore = ['name', 'raw_link']
 
             for index in Settings.informations:
-                if Settings.informations[index] != '':
+                if index not in to_ignore and Settings.informations[index] != '':
                     self.set_info_settings(index)
                 elif index in to_ignore:
                     continue
