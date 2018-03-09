@@ -389,8 +389,7 @@ class Initiate(object):
                 index += 1
 
             return splited_line[index]
-
-        raise Exception('Separator not found.')
+        return extracted_domain
 
     @classmethod
     def allow_test(cls):
