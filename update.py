@@ -290,7 +290,7 @@ class Initiate(object):
                     False).execute(),
                 regex_new_test,
                 return_data=False,
-                escape=True).match():
+                escape=False).match():
 
             if Helpers.Download(
                     Settings.raw_link,
@@ -410,7 +410,7 @@ class Initiate(object):
                     False).execute(),
                 r'Launch\stest',
                 return_data=False,
-                escape=True).match():
+                escape=False).match():
             return True
 
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
