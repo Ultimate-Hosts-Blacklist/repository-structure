@@ -17,11 +17,12 @@ Contributors:
 """
 
 from json import decoder, dump, loads
+from os import chmod, environ, getcwd, path
 from os import sep as directory_separator
-from os import chmod, environ, getcwd, path, stat
+from os import stat
 from re import compile as comp
-from re import sub as substrings
 from re import escape
+from re import sub as substrings
 from shutil import copyfileobj
 from stat import S_IEXEC
 from subprocess import PIPE, Popen
