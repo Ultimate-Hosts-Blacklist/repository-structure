@@ -311,7 +311,7 @@ class Initiate(object):
                         '\n'.join(formated_content),
                         overwrite=True)
             elif not Settings.raw_link:
-                print("No raw link found.")
+                print("\n")
             else:
                 raise Exception(
                     'Unable to download the the file. Please check the link.')
