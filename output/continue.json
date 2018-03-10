@@ -1,8 +1,0 @@
-{
-    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
-        "number_of_down": 108,
-        "number_of_invalid": 0,
-        "number_of_tested": 165,
-        "number_of_up": 57
-    }
-}
