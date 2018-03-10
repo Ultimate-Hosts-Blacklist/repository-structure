@@ -652,16 +652,17 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
             This method initiate the download.
             """
 
-            request = get(self.link_to_download, stream=True)
+            if self.link_to_download:
+                request = get(self.link_to_download, stream=True)
 
-            if request.status_code == 200:
-                with open(self.destination, 'wb') as file:
-                    request.raw.decode_content = True
-                    copyfileobj(request.raw, file)
+                if request.status_code == 200:
+                    with open(self.destination, 'wb') as file:
+                        request.raw.decode_content = True
+                        copyfileobj(request.raw, file)
 
-                del request
+                    del request
 
-                return True
+                    return True
             return False
 
     class Command(object):
