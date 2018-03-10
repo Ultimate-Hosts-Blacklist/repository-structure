@@ -144,7 +144,14 @@ class Settings(object):  # pylint: disable=too-few-public-methods
     #
     # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
     # Note: This variable is auto updated by Initiate()
-    update_original = False
+    clean_original = False
+
+    # This variable is used to set the location of the file for the list without
+    # dead/inactive domains
+    #
+    # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
+    # Note: This variable is auto updated by Initiate()
+    clean_list_file = "clean.list"
 
 
 class Initiate(object):
@@ -231,7 +238,7 @@ class Initiate(object):
             if index in [
                     'stable',
                     'currently_under_test',
-                    'update_original'] and Settings.informations[index].isdigit():
+                    'clean_original'] and Settings.informations[index].isdigit():
                 setattr(Settings, index, bool(
                     int(Settings.informations[index])))
             elif index in ['days_until_next_test', 'last_test', 'autosave_minutes'] \
@@ -397,6 +404,15 @@ class Initiate(object):
         Check if we allow a test.
         """
 
+        if not Settings.currently_under_test and Helpers.Regex(
+                Helpers.Command(
+                    'git log -1',
+                    False).execute(),
+                r'Launch\stest',
+                return_data=False,
+                escape=True).match():
+            return True
+
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
             retest_date = Settings.last_test + \
                 (24 * Settings.days_until_next_test * 3600)
@@ -418,12 +434,12 @@ class Initiate(object):
         return ""
 
     @classmethod
-    def _update_original(cls):
+    def _clean_original(cls):
         """
         Replace the original file.
         """
 
-        if Settings.update_original:
+        if Settings.clean_original:
             list_content = Helpers.File(
                 Settings.file_to_test).to_list()
 
@@ -440,7 +456,7 @@ class Initiate(object):
                     if line and not line.startswith('#'):
                         list_content.remove(line)
 
-            Helpers.File(Settings.file_to_test).write(
+            Helpers.File(Settings.clean_list_file).write(
                 '\n'.join(list_content),
                 overwrite=True)
 
@@ -498,7 +514,7 @@ class Initiate(object):
                     commit_message + \
                     ' && input source file [ci skip]'
 
-                self._update_original()
+                self._clean_original()
             else:
                 Settings.informations['currently_under_test'] = str(int(True))
                 commit_message = "[Autosave] " + \
