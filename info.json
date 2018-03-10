@@ -12,10 +12,11 @@
     "commit_autosave_message": "Test of the testing system",
     "currently_under_test": "0",
     "days_until_next_test": "2",
-    "last_test": "1520629874",
-    "list_name": "Testing.list",
-    "name": "Testing",
+    "last_test": "0",
+    "list_name": "domains.list",
+    "name": "Repository Structure testing",
     "raw_link": "https://raw.githubusercontent.com/mitchellkrogza/Ultimate.Hosts.Blacklist/master/.input_sources/_Add_Spam/domains.txt",
     "stable": "0",
-    "update_original": "1"
+    "clean_original": "1",
+    "clean_list_file": "clean.list"
 }
