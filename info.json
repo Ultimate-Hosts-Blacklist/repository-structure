@@ -18,5 +18,6 @@
     "list_name": "domains.list",
     "name": "Repository Structure testing",
     "raw_link": "",
-    "stable": "0"
+    "stable": "0",
+    "only_ip": "0"
 }
