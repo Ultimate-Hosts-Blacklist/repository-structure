@@ -340,7 +340,7 @@ class Initiate(object):
 
             for index in Settings.informations:
                 if Settings.informations[index] != '':
-                    if not index == to_ignore[1:]:
+                    if not index in to_ignore[1:]:
                         self.set_info_settings(index)
                 elif index in to_ignore:
                     continue
