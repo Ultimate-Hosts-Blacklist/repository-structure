@@ -334,7 +334,7 @@ class Initiate(object):
             raise Exception(
                 'Unable to download the the file. Please check the link.')
 
-    rdef list_file(self):
+    def list_file(self):
         """
         Download and format Settings.raw_link.
         """
