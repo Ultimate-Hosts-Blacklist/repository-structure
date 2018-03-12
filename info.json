@@ -11,13 +11,12 @@
     "autosave_minutes": "10",
     "clean_list_file": "clean.list",
     "clean_original": "1",
-    "commit_autosave_message": "Test of the testing system",
+    "commit_autosave_message": "Testing for Ultimate Hosts Blacklist",
     "currently_under_test": "0",
     "days_until_next_test": "2",
-    "last_test": "1520803900",
+    "last_test": "0",
     "list_name": "domains.list",
-    "name": "Repository Structure testing",
-    "only_ip": "0",
+    "name": "Domain Status Testing for Ultimate Hosts Blacklist",
     "raw_link": "",
     "stable": "0"
 }
