@@ -163,7 +163,7 @@ class Initiate(object):
     def __init__(self):  # pylint: disable=too-many-branches
         self.travis()
         self.travis_permissions()
-        self.stucture()
+        self.structure()
 
     @classmethod
     def travis(cls):
@@ -328,7 +328,7 @@ class Initiate(object):
             return True
         return False
 
-    def stucture(self):
+    def structure(self):
         """
         Read info.json and retranscript its data into the script.
         """
