@@ -336,7 +336,7 @@ class Initiate(object):
         if path.isfile(Settings.repository_info):
             content = Helpers.File(Settings.repository_info).read()
             Settings.informations = Helpers.Dict().from_json(content)
-            to_ignore = ['raw_link','name', 'only_ip']
+            to_ignore = ['raw_link','name']
 
             for index in Settings.informations:
                 if Settings.informations[index] != '':
