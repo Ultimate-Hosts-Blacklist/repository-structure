@@ -307,7 +307,7 @@ class Initiate(object):
         download_filename = Settings.raw_link.split('/')[-1]
         extraction_directory = './temp'
 
-        if Helpers.Download(Settings.raw_link, download_filename):
+        if Helpers.Download(Settings.raw_link, download_filename).link():
             Helpers.File(download_filename).tar_gz_decompress(
                 extraction_directory)
 
