@@ -535,7 +535,8 @@ class Initiate(object):
         else:
             status = '--dev'
 
-        command_to_execute = 'sudo python3 %s %s -u && ' % (
+        command_to_execute = 'wget %s -O config.yaml && ' % Settings.permanent_config_link
+        command_to_execute += 'sudo python3 %s %s -u && ' % (
             PyFunceble_path, status)
         command_to_execute += 'python3 %s -v && ' % (PyFunceble_path)
         command_to_execute += 'export TRAVIS_BUILD_DIR=%s && ' % environ['TRAVIS_BUILD_DIR']
