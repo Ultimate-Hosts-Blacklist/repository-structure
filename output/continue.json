@@ -1,0 +1,8 @@
+{
+    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
+        "down": 0,
+        "invalid": 0,
+        "tested": 2,
+        "up": 2
+    }
+}
