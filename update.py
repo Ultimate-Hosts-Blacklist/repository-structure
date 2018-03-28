@@ -167,6 +167,7 @@ class Initiate(object):
     """
 
     def __init__(self):  # pylint: disable=too-many-branches
+        self.config_update = 'wget %s -O config.yaml' % Settings.permanent_config_link
         self.travis()
         self.travis_permissions()
         self.structure()
@@ -377,9 +378,11 @@ class Initiate(object):
                     'Unable to download the the file. Please check the link.')
 
             if path.isdir(Settings.current_directory + 'output'):
+                Helpers.Command(self.config_update).execute()
+
                 Helpers.Command(
                     Settings.current_directory +
-                    'tool.py -c',
+                    'PyFunceble.py --clean',
                     False).execute()
 
             self.travis_permissions()
@@ -535,7 +538,6 @@ class Initiate(object):
         else:
             status = '--dev'
 
-        config_update = 'wget %s -O config.yaml' % Settings.permanent_config_link
         command_to_execute = 'sudo python3 %s %s -u && ' % (
             PyFunceble_path, status)
         command_to_execute += 'python3 %s -v && ' % (PyFunceble_path)
@@ -555,10 +557,7 @@ class Initiate(object):
                 Settings.informations).to_json(
                     Settings.repository_info)
 
-            print(Helpers.Command(config_update, True).execute())
-            self.travis_permissions()
-            print(Helpers.Command('ls -al', True).execute())
-
+            print(Helpers.Command(self.config_update, True).execute())
             print(Helpers.Command(command_to_execute, True).execute())
 
             commit_message = 'Update of info.json'
