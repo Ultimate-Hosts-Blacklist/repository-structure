@@ -378,7 +378,7 @@ class Initiate(object):
                     'Unable to download the the file. Please check the link.')
 
             if path.isdir(Settings.current_directory + 'output'):
-                Helpers.Command(self.config_update).execute()
+                Helpers.Command(self.config_update, False).execute()
 
                 Helpers.Command(
                     Settings.current_directory +
@@ -557,7 +557,7 @@ class Initiate(object):
                 Settings.informations).to_json(
                     Settings.repository_info)
 
-            print(Helpers.Command(self.config_update, True).execute())
+            Helpers.Command(self.config_update, False).execute()
             print(Helpers.Command(command_to_execute, True).execute())
 
             commit_message = 'Update of info.json'
