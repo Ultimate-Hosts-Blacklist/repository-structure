@@ -535,12 +535,11 @@ class Initiate(object):
         else:
             status = '--dev'
 
-        command_to_execute = 'wget %s -O config.yaml && ' % Settings.permanent_config_link
-        command_to_execute += 'sudo python3 %s %s -u && ' % (
+        config_update = 'wget %s -O config.yaml' % Settings.permanent_config_link
+        command_to_execute = 'sudo python3 %s %s -u && ' % (
             PyFunceble_path, status)
         command_to_execute += 'python3 %s -v && ' % (PyFunceble_path)
         command_to_execute += 'export TRAVIS_BUILD_DIR=%s && ' % environ['TRAVIS_BUILD_DIR']
-        command_to_execute += 'wget %s -O config.yaml && ' % Settings.permanent_config_link
         command_to_execute += 'sudo python3 %s %s -f %s' % (
             PyFunceble_path, self._construct_arguments(), Settings.file_to_test)
 
@@ -551,9 +550,12 @@ class Initiate(object):
                 'LICENSE').link()
 
             Settings.informations['last_test'] = strftime('%s')
+
             Helpers.Dict(
                 Settings.informations).to_json(
                     Settings.repository_info)
+
+            print(Helpers.Command(config_update, True).execute())
             self.travis_permissions()
 
             print(Helpers.Command(command_to_execute, True).execute())
