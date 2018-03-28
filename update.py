@@ -557,6 +557,7 @@ class Initiate(object):
 
             print(Helpers.Command(config_update, True).execute())
             self.travis_permissions()
+            print(Helpers.Command('ls -al', True).execute())
 
             print(Helpers.Command(command_to_execute, True).execute())
 
