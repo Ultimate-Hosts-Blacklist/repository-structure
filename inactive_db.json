@@ -1,3 +1,5 @@
 {
-    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {}
+    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
+        "to_test": []
+    }
 }
