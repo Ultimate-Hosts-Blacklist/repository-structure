@@ -285,6 +285,9 @@ class Initiate(object):
             stats = stat(file_path)
             chmod(file_path, stats.st_mode | S_IEXEC)
 
+        if path.isfile(Settings.current_directory + 'tool.py'):
+            Helpers.File(Settings.current_directory + 'tool.py').delete()
+
     def _extract_lines(self, file):
         """
         This method extract and format each line to get the domain.
