@@ -1,5 +1,8 @@
 {
     "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
+        "0": [
+            "||google.com^"
+        ],
         "to_test": []
     }
 }
