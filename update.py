@@ -268,7 +268,7 @@ class Initiate(object):
         """
         Download PyFunceble files if they are not present.
         """
-        
+
         for file in Settings.PyFunceble:
             file_path = Settings.current_directory + file
 
@@ -530,7 +530,7 @@ class Initiate(object):
         else:
             status = "--dev"
 
-        command_to_execute = "python3 %s -v && " % (PyFunceble_path)
+        command_to_execute = "%s -v && " % (PyFunceble_path)
         command_to_execute += "export TRAVIS_BUILD_DIR=%s && " % environ[
             "TRAVIS_BUILD_DIR"
         ]
