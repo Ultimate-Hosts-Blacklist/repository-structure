@@ -270,24 +270,9 @@ class Initiate(object):
         Download PyFunceble files if they are not present.
         """
 
-        for file in Settings.PyFunceble:
-            file_path = Settings.current_directory + file
+        Helpers.File(Settings.current_directory + "tool.py").delete()
+        Helpers.File(Settings.current_directory + "PyFunceble.py").delete()
 
-            if not path.isfile(file_path) or not Settings.stable:
-                download_link = Settings.PyFunceble[file].replace("master", "dev")
-            else:
-                download_link = Settings.PyFunceble[file].replace("dev", "master")
-
-            if not Helpers.Download(download_link, file_path).link():
-                raise Exception("Unable to download %s." % download_link)
-
-            self.travis_permissions()
-
-            stats = stat(file_path)
-            chmod(file_path, stats.st_mode | S_IEXEC)
-
-        if path.isfile(Settings.current_directory + "tool.py"):
-            Helpers.File(Settings.current_directory + "tool.py").delete()
 
     def _extract_lines(self, file):
         """
