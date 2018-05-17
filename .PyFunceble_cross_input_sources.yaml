@@ -37,7 +37,7 @@ no_files:                     False
 # Activate/Deactivate the usage of WHOIS records for our tests results.
 no_whois:                     False
 # Activate/Deactivate the generation of plain list of domains.
-plain_list_domain:            True
+plain_list_domain:            False
 # Activate/Deactivate the quiet mode.
 quiet:                        False
 # The following will save the referer.
@@ -70,7 +70,7 @@ travis_autosave_minutes:      10
 # This tell us in which branch we have to push
 travis_branch:                master
 # Activate/Deactivate the generation of unified files for the results logs.
-unified:                      True
+unified:                      False
 
 # The following are the configurations related to the output/ directory.
 # NOTE:                       If you change the following section please delete the current output and
@@ -136,7 +136,7 @@ outputs:
     directory:                splited/
 
 # The following section helps you change the status in the script.
-# NOTE:                       if you cahnge the official status please also add it to its
+# NOTE: if you cahnge the official status please also add it to its
 # list section. If you do not do that, the script will stop working correctly.
 status:
   list:
@@ -167,7 +167,7 @@ status:
     invalid:                  INVALID
 
 
-# NOTE:                       DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
+# NOTE: DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
 # Indeed, we only advice changing the active which will activate (True) or deactivate (False)
 # the usage of the domain status code in our results.
 http_codes:
@@ -218,18 +218,18 @@ http_codes:
       - 504
       - 505
 
-# NOTE:                       DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
+# NOTE: DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
 links:
   api_date_format:            "http://pyfunceble.funilrys.com/api/date-format"
   api_no_referer:             "http://pyfunceble.funilrys.com/api/no-referer"
-  config:                     "https://raw.githubusercontent.com/funilrys/PyFunceble/master/config_production.yaml"
+  config:                     "https://raw.githubusercontent.com/funilrys/PyFunceble/master/.PyFunceble_production.yaml"
   dir_structure:              "https://raw.githubusercontent.com/funilrys/PyFunceble/master/dir_structure_production.json"
   iana:                       "https://raw.githubusercontent.com/funilrys/PyFunceble/master/iana-domains-db.json"
   repo:                       "https://github.com/funilrys/PyFunceble"
   requirements:               "https://raw.githubusercontent.com/funilrys/PyFunceble/master/requirements.txt"
   script:                     "https://raw.githubusercontent.com/funilrys/PyFunceble/master/PyFunceble.py"
 
-# NOTE:                       DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
+# NOTE: DO NOT CHANGE THIS SECTION UNLESS YOU KNOW WHAT IT IMPLIES.
 counter:
   number:
     down:                     0

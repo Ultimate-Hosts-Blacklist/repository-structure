@@ -174,7 +174,7 @@ class Initiate(object):
     """
 
     def __init__(self):  # pylint: disable=too-many-branches
-        self.config_update = "wget %s -O config.yaml" % Settings.permanent_config_link
+        self.config_update = "wget %s -O .PyFunceble.yaml" % Settings.permanent_config_link
         self.travis()
         self.travis_permissions()
         self.structure()
@@ -521,19 +521,18 @@ class Initiate(object):
         """
 
         # pylint: disable=invalid-name
-        PyFunceble_path = Settings.current_directory + "PyFunceble.py"
+        PyFunceble_path = "PyFunceble"
 
         if Settings.stable:
             status = ""
         else:
             status = "--dev"
 
-        command_to_execute = "sudo python3 %s %s -u && " % (PyFunceble_path, status)
-        command_to_execute += "python3 %s -v && " % (PyFunceble_path)
+        command_to_execute = "python3 %s -v && " % (PyFunceble_path)
         command_to_execute += "export TRAVIS_BUILD_DIR=%s && " % environ[
             "TRAVIS_BUILD_DIR"
         ]
-        command_to_execute += "sudo python3 %s %s -f %s" % (
+        command_to_execute += "%s %s -f %s" % (
             PyFunceble_path, self._construct_arguments(), Settings.file_to_test
         )
 
