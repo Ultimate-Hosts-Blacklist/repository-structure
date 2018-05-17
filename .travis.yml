@@ -22,6 +22,7 @@ sudo: required
 
 before_script:
   - sudo apt-get -y install dos2unix
+  - pip3 install colorama
 
 script:
   - pip3 install git+https://github.com/funilrys/PyFunceble.git@dev#egg=PyFunceble && python3 ./update.py
