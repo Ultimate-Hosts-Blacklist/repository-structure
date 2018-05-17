@@ -20,9 +20,9 @@ cache:
 
 sudo: required
 
-before_script:
-  - sudo apt-get -y install dos2unix
+before_install:
   - pip3 install colorama
+  - sudo apt-get -y install dos2unix
 
 script:
   - pip3 install git+https://github.com/funilrys/PyFunceble.git@dev#egg=PyFunceble && python3 ./update.py
