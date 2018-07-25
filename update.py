@@ -108,7 +108,8 @@ class Settings:  # pylint: disable=too-few-public-methods
     #
     # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
     PyFunceble = {
-        "requirements.txt": "https://raw.githubusercontent.com/funilrys/PyFunceble/master/requirements.txt"  # pylint: disable=line-too-long
+        "requirements.txt": "https://raw.githubusercontent.com/funilrys/PyFunceble/master/requirements.txt",  # pylint: disable=line-too-long
+        ".PyFunceble_production.yaml": "https://raw.githubusercontent.com/funilrys/PyFunceble/master/.PyFunceble_production.yaml",  # pylint: disable=line-too-long
     }
 
     # This variable is used to match [ci skip] from the git log.
@@ -175,7 +176,54 @@ class Initiate:
     def __init__(self):  # pylint: disable=too-many-branches
         self.travis()
         self.travis_permissions()
+
+        self._fix_cross_repo_config()
+
         self.structure()
+
+    @classmethod
+    def _fix_cross_repo_config(cls):
+        """
+        This method will fix the cross repositories configuration.
+        """
+
+        if not Settings.stable:
+            to_download = Settings.PyFunceble[".PyFunceble_production.yaml"].replace(
+                "master", "dev"
+            )
+        else:
+            to_download = Settings.PyFunceble[".PyFunceble_production.yaml"].replace(
+                "dev", "master"
+            )
+
+        destination = Settings.permanent_config_link.split("/")[-1]
+
+        if path.isfile(destination):
+            Helpers.Download(to_download, destination).link()
+
+            to_replace = {
+                r"less:.*": "less: False",
+                r"plain_list_domain:.*": "plain_list_domain: True",
+                r"seconds_before_http_timeout:.*": "seconds_before_http_timeout: 6",
+                r"share_logs:.*": "share_logs: True",
+                r"show_execution_time:.*": "show_execution_time: True",
+                r"split:.*": "split: True",
+                r"travis:.*": "travis: True",
+                r"travis_autosave_commit:.*": 'travis_autosave_commit: "[Autosave] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
+                r"travis_autosave_final_commit:.*": 'travis_autosave_final_commit: "[Results] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
+                r"travis_branch:.*": "travis_branch: master",
+                r"travis_autosave_minutes:.*": "travis_autosave_minutes: %s"
+                % Settings.autosave_minutes,
+            }
+
+            content = Helpers.File(destination).read()
+
+            for regex, replacement in to_replace.items():
+                content = Helpers.Regex(
+                    content, regex, replace_with=replacement, return_data=True
+                ).replace()
+
+            Helpers.File(destination).write(content, overwrite=True)
 
     @classmethod
     def travis(cls):
