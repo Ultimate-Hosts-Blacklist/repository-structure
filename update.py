@@ -32,7 +32,7 @@ from time import ctime, strftime
 from requests import get
 
 
-class Settings(object):  # pylint: disable=too-few-public-methods
+class Settings:  # pylint: disable=too-few-public-methods
     """
     This class will save all data that can be called from anywhere in the code.
     """
@@ -108,7 +108,7 @@ class Settings(object):  # pylint: disable=too-few-public-methods
     #
     # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
     PyFunceble = {
-        "requirements.txt": "https://raw.githubusercontent.com/funilrys/PyFunceble/master/requirements.txt",  # pylint: disable=line-too-long
+        "requirements.txt": "https://raw.githubusercontent.com/funilrys/PyFunceble/master/requirements.txt"  # pylint: disable=line-too-long
     }
 
     # This variable is used to match [ci skip] from the git log.
@@ -167,13 +167,12 @@ class Settings(object):  # pylint: disable=too-few-public-methods
     convert_to_idna = False
 
 
-class Initiate(object):
+class Initiate:
     """
     Initiate several actions.
     """
 
     def __init__(self):  # pylint: disable=too-many-branches
-        self.config_update = "wget %s -O .PyFunceble.yaml" % Settings.permanent_config_link
         self.travis()
         self.travis_permissions()
         self.structure()
@@ -224,9 +223,10 @@ class Initiate(object):
             for command in commands:
                 Helpers.Command(command, False).execute()
 
-            if Helpers.Command(
-                "git config core.sharedRepository", False
-            ).execute() == "":
+            if (
+                Helpers.Command("git config core.sharedRepository", False).execute()
+                == ""
+            ):
                 Helpers.Command(
                     "git config core.sharedRepository group", False
                 ).execute()
@@ -245,17 +245,21 @@ class Initiate(object):
 
         try:
             getattr(Settings, index)
-            if index in [
-                "stable", "currently_under_test", "clean_original", "convert_to_idna"
-            ] and Settings.informations[
+            if (
                 index
-            ].isdigit():
+                in [
+                    "stable",
+                    "currently_under_test",
+                    "clean_original",
+                    "convert_to_idna",
+                ]
+                and Settings.informations[index].isdigit()
+            ):
                 setattr(Settings, index, bool(int(Settings.informations[index])))
-            elif index in [
-                "days_until_next_test", "last_test", "autosave_minutes"
-            ] and Settings.informations[
-                index
-            ].isdigit():
+            elif (
+                index in ["days_until_next_test", "last_test", "autosave_minutes"]
+                and Settings.informations[index].isdigit()
+            ):
                 setattr(Settings, index, int(Settings.informations[index]))
             else:
                 setattr(Settings, index, Settings.informations[index])
@@ -285,11 +289,8 @@ class Initiate(object):
             stats = stat(file_path)
             chmod(file_path, stats.st_mode | S_IEXEC)
 
-
-
         Helpers.File(Settings.current_directory + "tool.py").delete()
         Helpers.File(Settings.current_directory + "PyFunceble.py").delete()
-
 
     def _extract_lines(self, file):
         """
@@ -350,12 +351,15 @@ class Initiate(object):
 
         regex_new_test = r"Launch\stest"
 
-        if not Settings.currently_under_test or Helpers.Regex(
-            Helpers.Command("git log -1", False).execute(),
-            regex_new_test,
-            return_data=False,
-            escape=False,
-        ).match():
+        if (
+            not Settings.currently_under_test
+            or Helpers.Regex(
+                Helpers.Command("git log -1", False).execute(),
+                regex_new_test,
+                return_data=False,
+                escape=False,
+            ).match()
+        ):
 
             if Settings.raw_link.endswith(".tar.gz"):
                 self._generate_from_tar_gz()
@@ -377,11 +381,11 @@ class Initiate(object):
                 )
 
             if path.isdir(Settings.current_directory + "output"):
-                Helpers.Command(self.config_update, False).execute()
+                Helpers.Download(
+                    Settings.permanent_config_link, ".PyFunceble.yaml"
+                ).link()
 
-                Helpers.Command(
-                    "PyFunceble --clean", False
-                ).execute()
+                Helpers.Command("PyFunceble --clean", False).execute()
 
             self.travis_permissions()
 
@@ -435,9 +439,11 @@ class Initiate(object):
         if not extracted_domain.startswith("#"):
 
             if "#" in extracted_domain:
-                extracted_domain = extracted_domain[:extracted_domain.find("#")].strip()
+                extracted_domain = extracted_domain[
+                    : extracted_domain.find("#")
+                ].strip()
 
-            if ' ' in extracted_domain or '\ŧ' in extracted_domain:
+            if " " in extracted_domain or "\t" in extracted_domain:
                 splited_line = extracted_domain.split()
 
                 index = 1
@@ -459,12 +465,15 @@ class Initiate(object):
         Check if we allow a test.
         """
 
-        if not Settings.currently_under_test and Helpers.Regex(
-            Helpers.Command("git log -1", False).execute(),
-            r"Launch\stest",
-            return_data=False,
-            escape=False,
-        ).match():
+        if (
+            not Settings.currently_under_test
+            and Helpers.Regex(
+                Helpers.Command("git log -1", False).execute(),
+                r"Launch\stest",
+                return_data=False,
+                escape=False,
+            ).match()
+        ):
             return True
 
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
@@ -525,17 +534,19 @@ class Initiate(object):
         # pylint: disable=invalid-name
         PyFunceble_path = "PyFunceble"
 
-        if Settings.stable:
-            status = ""
-        else:
-            status = "--dev"
-
         command_to_execute = "%s -v && " % (PyFunceble_path)
-        command_to_execute += "export TRAVIS_BUILD_DIR=%s && " % environ[
-            "TRAVIS_BUILD_DIR"
-        ]
+
+        try:
+            command_to_execute += (
+                "export TRAVIS_BUILD_DIR=%s && " % environ["TRAVIS_BUILD_DIR"]
+            )
+        except KeyError:
+            pass
+
         command_to_execute += "%s %s -f %s" % (
-            PyFunceble_path, self._construct_arguments(), Settings.file_to_test
+            PyFunceble_path,
+            self._construct_arguments(),
+            Settings.file_to_test,
         )
 
         if self.allow_test():
@@ -547,7 +558,7 @@ class Initiate(object):
 
             Helpers.Dict(Settings.informations).to_json(Settings.repository_info)
 
-            Helpers.Command(self.config_update, False).execute()
+            Helpers.Download(Settings.permanent_config_link, ".PyFunceble.yaml").link()
             print(Helpers.Command(command_to_execute, True).execute())
 
             try:
@@ -561,7 +572,11 @@ class Initiate(object):
                     escape=True,
                 ).match():
                     Settings.informations["currently_under_test"] = str(int(False))
-                    commit_message = "[Results] " + commit_message + " && generation of clean.list [ci skip]"  # pylint: disable=line-too-long
+                    commit_message = (
+                        "[Results] "
+                        + commit_message
+                        + " && generation of clean.list [ci skip]"
+                    )  # pylint: disable=line-too-long
 
                     self._clean_original()
                 else:
@@ -588,12 +603,12 @@ class Initiate(object):
             exit(0)
 
 
-class Helpers(object):  # pylint: disable=too-few-public-methods
+class Helpers:  # pylint: disable=too-few-public-methods
     """
     Well thanks to those helpers I wrote :)
     """
 
-    class Dict(object):
+    class Dict:
         """
         Dictionary manipulations.
 
@@ -644,7 +659,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
             except decoder.JSONDecodeError:
                 return {}
 
-    class List(object):  # pylint: disable=too-few-public-methods
+    class List:  # pylint: disable=too-few-public-methods
         """
         List manipulation.
         """
@@ -666,7 +681,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
             except TypeError:
                 return self.main_list
 
-    class Directory(object):  # pylint: disable=too-few-public-methods
+    class Directory:  # pylint: disable=too-few-public-methods
         """
         Directory treatment/manipulations.
 
@@ -688,7 +703,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
             except FileNotFoundError:
                 pass
 
-    class File(object):  # pylint: disable=too-few-public-methods
+    class File:  # pylint: disable=too-few-public-methods
         """
         File treatment/manipulations.
 
@@ -762,7 +777,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
                 with tarfile_open(self.file) as thetar:
                     thetar.extractall(path=destination)
 
-    class Download(object):  # pylint: disable=too-few-public-methods
+    class Download:  # pylint: disable=too-few-public-methods
         """
         This class will initiate a download of the desired link.
 
@@ -835,7 +850,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
 
             return False
 
-    class Command(object):
+    class Command:
         """
         Shell command execution.
 
@@ -887,7 +902,7 @@ class Helpers(object):  # pylint: disable=too-few-public-methods
                 exit(1)
             return self.decode_output(output)
 
-    class Regex(object):  # pylint: disable=too-few-public-methods
+    class Regex:  # pylint: disable=too-few-public-methods
 
         """A simple implementation ot the python.re package
 
