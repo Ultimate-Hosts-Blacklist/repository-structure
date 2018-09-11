@@ -607,7 +607,11 @@ class Initiate:
             Helpers.Dict(Settings.informations).to_json(Settings.repository_info)
 
             Helpers.Download(Settings.permanent_config_link, ".PyFunceble.yaml").link()
-            print(Helpers.Command(command_to_execute, True).execute())
+
+            try:
+                print(Helpers.Command(command_to_execute, True).execute())
+            except:
+                pass
 
             try:
                 _ = environ["TRAVIS_BUILD_DIR"]
