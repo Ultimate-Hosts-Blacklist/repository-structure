@@ -500,6 +500,8 @@ class Initiate:
                 The extracted domain or line from the file.
         """
 
+        extracted_domain = extracted_domain.strip()
+
         if not extracted_domain.startswith("#"):
 
             if "#" in extracted_domain:
