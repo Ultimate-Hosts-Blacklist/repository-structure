@@ -175,9 +175,24 @@ class Initiate:
         self.travis()
         self.travis_permissions()
 
+        self.install_right_pyfunceble()
         self._fix_cross_repo_config()
 
         self.structure()
+
+    @classmethod
+    def install_right_pyfunceble(cls):
+        """
+        This method will install the right version of PyFunceble
+        depending of the status of the `stable` index.
+        """
+
+        if Settings.stable:
+            to_download = "PyFunceble"
+        else:
+            to_download = "PyFunceble-dev"
+
+        Helpers.Command("pip3 install %s" % to_download, True).execute()
 
     @classmethod
     def _fix_cross_repo_config(cls):
@@ -609,8 +624,8 @@ class Initiate:
             Helpers.Download(Settings.permanent_config_link, ".PyFunceble.yaml").link()
 
             try:
-                print(Helpers.Command(command_to_execute, True).execute())
-            except:
+                Helpers.Command(command_to_execute, True).execute()
+            except KeyError:
                 pass
 
             try:

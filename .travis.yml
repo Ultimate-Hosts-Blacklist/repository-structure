@@ -9,23 +9,26 @@ env:
 language: python
 
 python:
-  - "3.6"
+  - "3.6.6"
 
 matrix:
   fast_finish: true
 
 cache:
-  - apt
   - pip
 
 sudo: required
 
-before_install:
-  - pip3 install colorama
-  - sudo apt-get -y install dos2unix
+addons:
+  apt:
+    packages:
+      - dos2unix
+
+install:
+  - pip3 install --upgrade pip
 
 script:
-  - pip3 install git+https://github.com/funilrys/PyFunceble.git@dev#egg=PyFunceble && python3 ./update.py
+  - python3 ./update.py
 
 notifications:
   on_success:   change
