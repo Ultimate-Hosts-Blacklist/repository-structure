@@ -651,9 +651,9 @@ class Initiate:
 
                 if Helpers.Regex(
                     Helpers.Command("git log -1", False).execute(),
-                    "[Results]",
+                    "\[Results\]",
                     return_data=False,
-                    escape=True,
+                    escape=False,
                 ).match():
                     Settings.informations["currently_under_test"] = str(
                         int(False))
