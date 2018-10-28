@@ -616,11 +616,10 @@ class Initiate:
                 Settings.permanent_license_link, Settings.current_directory + "LICENSE"
             ).link()
 
-            Settings.informations["last_test"] = strftime("%s")
-
-            Helpers.Dict(Settings.informations).to_json(Settings.repository_info)
-
             try:
+                Settings.informations["last_test"] = strftime("%s")
+                Helpers.Dict(Settings.informations).to_json(Settings.repository_info)
+
                 Helpers.Command(command_to_execute, True).execute()
             except KeyError:
                 pass
@@ -642,6 +641,12 @@ class Initiate:
                     )  # pylint: disable=line-too-long
 
                     self._clean_original()
+                elif not Helpers.Regex(
+                    Helpers.Command("git log -1", False).execute(),
+                    r"\[Autosave\]",
+                    return_data=False,
+                ).match():
+                    raise Exception("Push issue.")
                 else:
                     Settings.informations["currently_under_test"] = str(int(True))
                     commit_message = "[Autosave] " + commit_message
