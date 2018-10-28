@@ -340,7 +340,7 @@ class Initiate:
         for file in Settings.PyFunceble:
             file_path = Settings.current_directory + file
 
-            if not path.isfile(file_path) or not Settings.stable:
+            if not Settings.stable:
                 download_link = Settings.PyFunceble[file].replace("master", "dev")
             else:
                 download_link = Settings.PyFunceble[file].replace("dev", "master")
