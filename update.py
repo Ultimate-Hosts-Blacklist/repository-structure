@@ -166,6 +166,12 @@ class Settings:  # pylint: disable=too-few-public-methods
     # Note: This variable is auto updated by Initiate()
     convert_to_idna = False
 
+    # This variable is used to know the marker which we have to match in
+    # order to start from the begining.
+    #
+    # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
+    launch_test_marker = r"Launch\stest"
+
 
 class Initiate:
     """
@@ -412,17 +418,14 @@ class Initiate:
         Download and format Settings.raw_link.
         """
 
-        regex_new_test = r"Launch\stest"
+        restart = Helpers.Regex(
+            Helpers.Command("git log -1", False).execute(),
+            Settings.launch_test_marker,
+            return_data=False,
+            escape=False,
+        ).match()
 
-        if (
-            Helpers.Regex(
-                Helpers.Command("git log -1", False).execute(),
-                regex_new_test,
-                return_data=False,
-                escape=False,
-            ).match()
-            or not Settings.currently_under_test
-        ):
+        if restart or not Settings.currently_under_test:
             if Settings.raw_link.endswith(".tar.gz"):
                 self._generate_from_tar_gz()
             elif Helpers.Download(
@@ -443,6 +446,9 @@ class Initiate:
                     Helpers.Command("PyFunceble --clean", False).execute()
                 except KeyError:
                     pass
+
+            if restart:
+                Settings.currently_under_test = False
 
             self.travis_permissions()
 
@@ -523,15 +529,12 @@ class Initiate:
         Check if we allow a test.
         """
 
-        if (
-            not Settings.currently_under_test
-            or Helpers.Regex(
-                Helpers.Command("git log -1", False).execute(),
-                r"Launch\stest",
-                return_data=False,
-                escape=False,
-            ).match()
-        ):
+        if Helpers.Regex(
+            Helpers.Command("git log -1", False).execute(),
+            Settings.launch_test_marker,
+            return_data=False,
+            escape=False,
+        ).match():
             return True
 
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
