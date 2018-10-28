@@ -1,0 +1,14 @@
+{
+    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
+        "cliqz.com": {
+            "epoch": "1549238400",
+            "expiration_date": "04-feb-2019",
+            "state": "future"
+        },
+        "github.com": {
+            "epoch": "1602201600",
+            "expiration_date": "09-oct-2020",
+            "state": "future"
+        }
+    }
+}
