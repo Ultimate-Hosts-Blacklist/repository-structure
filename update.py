@@ -415,15 +415,14 @@ class Initiate:
         regex_new_test = r"Launch\stest"
 
         if (
-            not Settings.currently_under_test
-            or Helpers.Regex(
+            Helpers.Regex(
                 Helpers.Command("git log -1", False).execute(),
                 regex_new_test,
                 return_data=False,
                 escape=False,
             ).match()
+            or not Settings.currently_under_test
         ):
-
             if Settings.raw_link.endswith(".tar.gz"):
                 self._generate_from_tar_gz()
             elif Helpers.Download(
@@ -438,10 +437,6 @@ class Initiate:
                 )
             elif not Settings.raw_link:
                 print("\n")
-            else:
-                raise Exception(
-                    "Unable to download the the file. Please check the link."
-                )
 
             if path.isdir(Settings.current_directory + "output"):
                 try:
@@ -471,7 +466,6 @@ class Initiate:
                         self.set_info_settings(index)
                 elif index in to_ignore:
                     continue
-
                 else:
                     raise Exception(
                         'Please complete "%s" into %s'
@@ -531,7 +525,7 @@ class Initiate:
 
         if (
             not Settings.currently_under_test
-            and Helpers.Regex(
+            or Helpers.Regex(
                 Helpers.Command("git log -1", False).execute(),
                 r"Launch\stest",
                 return_data=False,
