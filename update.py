@@ -569,7 +569,7 @@ class Initiate:
             to_use.extend(Settings.arguments)
 
         if to_use:
-            return " ".join(Settings.arguments)
+            return " ".join(to_use)
 
         return ""
 
