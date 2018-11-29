@@ -596,6 +596,9 @@ class Initiate:
             Settings.file_to_test,
         )
 
+        print("Command to execute")
+        print(command_to_execute)
+
         if self.allow_test():
             Helpers.Download(
                 Settings.permanent_license_link, Settings.current_directory + "LICENSE"
