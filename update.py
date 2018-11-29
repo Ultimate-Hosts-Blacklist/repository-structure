@@ -341,7 +341,7 @@ class Initiate:
         else:
             to_download = "PyFunceble-dev"
 
-        Helpers.Command("pip3 install %s" % to_download, True).execute()
+        Helpers.Command("pip3 install %s" % to_download, False).execute()
 
     def download_PyFunceble(self):  # pylint: disable=invalid-name
         """
@@ -537,12 +537,15 @@ class Initiate:
         ).match():
             return True
 
+        if Settings.currently_under_test:
+            return True
+
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
             retest_date = Settings.last_test + (
                 24 * Settings.days_until_next_test * 3600
             )
 
-            if int(strftime("%s")) >= retest_date or Settings.currently_under_test:
+            if int(strftime("%s")) >= retest_date:
                 return True
 
             return False
