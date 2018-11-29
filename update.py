@@ -365,6 +365,7 @@ class Initiate:
 
         Helpers.File(Settings.current_directory + "tool.py").delete()
         Helpers.File(Settings.current_directory + "PyFunceble.py").delete()
+        Helpers.File(Settings.current_directory + "requirements.txt").delete()
 
     def _extract_lines(self, file):
         """
