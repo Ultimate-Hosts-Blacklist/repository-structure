@@ -558,7 +558,7 @@ class Initiate:
         to_use = []
 
         to_use.append(
-            "--cmd-before-end '%s'" % Settings.current_directory
+            "--cmd-before-end %s" % Settings.current_directory
             + Settings.administration_script
         )
 
@@ -595,9 +595,6 @@ class Initiate:
             self._construct_arguments(),
             Settings.file_to_test,
         )
-
-        print("Command to execute")
-        print(command_to_execute)
 
         if self.allow_test():
             Helpers.Download(
