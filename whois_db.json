@@ -9,6 +9,16 @@
             "epoch": "1602201600",
             "expiration_date": "09-oct-2020",
             "state": "future"
+        },
+        "xn--methrwallt-26ar0z.com": {
+            "epoch": "1539129600",
+            "expiration_date": "10-oct-2018",
+            "state": "past"
+        },
+        "xn--mytherwllet-r8a0c.com": {
+            "epoch": "1539129600",
+            "expiration_date": "10-oct-2018",
+            "state": "past"
         }
     }
 }

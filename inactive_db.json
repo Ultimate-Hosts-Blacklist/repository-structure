@@ -1,10 +1,11 @@
 {
     "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
-        "1543484840": [
-            "||google.com^",
-            "mÿethèrwallét.com",
-            "myètherwället.com"
+        "1543601252": [
+            "||google.com^"
         ],
-        "to_test": []
+        "to_test": [
+            "myètherwället.com",
+            "mÿethèrwallét.com"
+        ]
     }
 }
