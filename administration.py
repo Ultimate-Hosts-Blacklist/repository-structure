@@ -29,7 +29,7 @@ def get_administration_file():
         content = Helpers.File(Settings.repository_info).read()
         INFO.update(Helpers.Dict().from_json(content))
     else:
-        raise Exception("Unabel to find the administration file.")
+        raise Exception("Unable to find the administration file.")
 
 
 def update_adminisation_file():
@@ -57,7 +57,7 @@ def generate_clean_and_whitelisted_list():
         clean_list = []
 
         list_special_content = Helpers.Regex(
-            Helpers.File(Settings.file_to_test + INFO["list_name"]).to_list(), r"ALL\s"
+            Helpers.File(Settings.file_to_test + Settings.list_name).to_list(), r"ALL\s"
         ).matching_list()
 
         active = Settings.current_directory + "output/domains/ACTIVE/list"
@@ -77,7 +77,7 @@ def generate_clean_and_whitelisted_list():
 
         Helpers.File(Settings.whitelisted_list_file).write(whitelisted, overwrite=True)
 
-        Helpers.File('whitelisting.py').delete()
+        Helpers.File("whitelisting.py").delete()
 
 
 if __name__ == "__main__":
