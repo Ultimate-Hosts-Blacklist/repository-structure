@@ -15,6 +15,7 @@ Contributors:
     @GitHubUsername, Name, Email (optional)
 """
 from update import Helpers, Settings, path, strftime
+from whitelisting import Whitelist
 
 INFO = {}
 
@@ -47,9 +48,9 @@ def save_administration_file():
     Helpers.Dict(INFO).to_json(Settings.repository_info)
 
 
-def generate_clean_list():
+def generate_clean_and_whitelisted_list():
     """
-    Update `clean.list`.
+    Update/Create `clean.list` and `whitelisted.list`.
     """
 
     if bool(int(INFO["clean_original"])):
@@ -68,10 +69,15 @@ def generate_clean_list():
             )
 
         clean_list = Helpers.List(clean_list).format()
+        whitelisted = Whitelist(string="\n".join(clean_list)).get()
 
         Helpers.File(Settings.clean_list_file).write(
             "\n".join(clean_list), overwrite=True
         )
+
+        Helpers.File(Settings.whitelisted_list_file).write(whitelisted, overwrite=True)
+
+        Helpers.File('whitelisting.py').delete()
 
 
 if __name__ == "__main__":
@@ -79,4 +85,4 @@ if __name__ == "__main__":
     update_adminisation_file()
     save_administration_file()
 
-    generate_clean_list()
+    generate_clean_and_whitelisted_list()
