@@ -88,7 +88,7 @@ class Settings:  # pylint: disable=too-few-public-methods
     #
     # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
     # Note: This variable is auto updated by Initiate()
-    file_to_test = current_directory
+    file_to_test = current_directory + list_name
 
     # This variable will help us know what how many days we have to wait until next test.
     #
