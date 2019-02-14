@@ -338,7 +338,8 @@ class PyFunceble:
         ).match():
             return True
 
-        if Settings.currently_under_test:
+        if not Settings.currently_under_test:
+            cls.clean()
             return True
 
         if Settings.days_until_next_test >= 1 and Settings.last_test != 0:
@@ -346,7 +347,7 @@ class PyFunceble:
                 24 * Settings.days_until_next_test * 3600
             )
 
-            if int(strftime("%s")) >= retest_date:
+            if int(strftime("%s")) >= retest_date or Settings.currently_under_test:
                 return True
 
             return False
