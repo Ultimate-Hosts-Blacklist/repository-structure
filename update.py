@@ -574,7 +574,7 @@ class DomainsList:
             elif Helpers.Download(Settings.raw_link, Settings.file_to_test).link():
                 Helpers.Command("dos2unix " + Settings.file_to_test, False).execute()
 
-                formated_content = cls.extract_lines(Settings.file_to_test)
+                formated_content = Helpers.List(cls.extract_lines(Settings.file_to_test)).format()
 
                 Helpers.File(Settings.file_to_test).write(
                     "\n".join(formated_content), overwrite=True
