@@ -438,8 +438,7 @@ class PyFunceble:
                         r"travis:.*": "travis: True",
                         r"travis_autosave_commit:.*": 'travis_autosave_commit: "[Autosave] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
                         r"travis_autosave_final_commit:.*": 'travis_autosave_final_commit: "[Results] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
-                        r"travis_branch:.*": "travis_branch: %s"
-                        % environ["GIT_BRANCH"],
+                        r"travis_branch:.*": "travis_branch: master",
                         r"travis_autosave_minutes:.*": "travis_autosave_minutes: %s"
                         % Settings.autosave_minutes,
                     }
@@ -574,7 +573,9 @@ class DomainsList:
             elif Helpers.Download(Settings.raw_link, Settings.file_to_test).link():
                 Helpers.Command("dos2unix " + Settings.file_to_test, False).execute()
 
-                formated_content = Helpers.List(cls.extract_lines(Settings.file_to_test)).format()
+                formated_content = Helpers.List(
+                    cls.extract_lines(Settings.file_to_test)
+                ).format()
 
                 Helpers.File(Settings.file_to_test).write(
                     "\n".join(formated_content), overwrite=True
@@ -1064,5 +1065,5 @@ class Helpers:  # pylint: disable=too-few-public-methods
 
 
 if __name__ == "__main__":
-    repository_content = Administration()
-    repository_content()
+    REPOSITORY_UPDATE = Administration()
+    REPOSITORY_UPDATE()
