@@ -562,14 +562,17 @@ class DomainsList:
         Construct or update the file we are going to test.
         """
 
-        restart = Helpers.Regex(
-            Helpers.Command("git log -1", False).execute(),
-            Settings.launch_test_marker,
-            return_data=False,
-            escape=False,
-        ).match()
+        restart = (
+            Helpers.Regex(
+                Helpers.Command("git log -1", False).execute(),
+                Settings.launch_test_marker,
+                return_data=False,
+                escape=False,
+            ).match()
+            or not Settings.currently_under_test
+        )
 
-        if restart or not Settings.currently_under_test:
+        if restart:
             if Settings.raw_link.endswith(".tar.gz"):
                 cls.generate_from_tar_gz()
             elif Helpers.Download(Settings.raw_link, Settings.file_to_test).link():
