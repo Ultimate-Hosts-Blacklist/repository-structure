@@ -336,6 +336,7 @@ class PyFunceble:
             return_data=False,
             escape=False,
         ).match():
+            cls.clean()
             return True
 
         if not Settings.currently_under_test:
