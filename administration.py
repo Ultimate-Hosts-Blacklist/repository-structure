@@ -14,7 +14,10 @@ Contributors:
 
     @GitHubUsername, Name, Email (optional)
 """
-from PyFunceble import syntax_check
+# pylint:disable=bad-continuation
+
+from PyFunceble import test as domain_availability_check
+from PyFunceble.check import Check
 from ultimate_hosts_blacklist_the_whitelist import clean_list_with_official_whitelist
 
 from update import Helpers, Settings, path, strftime
@@ -55,7 +58,7 @@ def generate_clean_and_whitelisted_list():
     Update/Create `clean.list` and `whitelisted.list`.
     """
 
-    if bool(int(INFO["clean_original"])):
+    if not bool(int(INFO["clean_original"])):  # pylint: disable=too-many-nested-blocks
         clean_list = temp_clean_list = []
 
         list_special_content = Helpers.Regex(
@@ -74,11 +77,26 @@ def generate_clean_and_whitelisted_list():
 
         for element in temp_clean_list:
             if element:
-                if syntax_check(element):
-                    if element.startswith("www."):
+                if (
+                    not Check(element).is_subdomain()
+                    and Check(element).is_domain_valid()
+                ):
+                    if (
+                        element.startswith("www.")
+                        and domain_availability_check(
+                            element[4:], config={"no_whois": True}
+                        ).lower()
+                        == "active"
+                    ):
                         clean_list.append(element[4:])
                     else:
-                        clean_list.append("www.%s" % element)
+                        if (
+                            domain_availability_check(
+                                element, config={"no_whois": True}
+                            ).lower()
+                            == "active"
+                        ):
+                            clean_list.append("www.%s" % element)
                 clean_list.append(element)
 
         clean_list = Helpers.List(clean_list).format()
