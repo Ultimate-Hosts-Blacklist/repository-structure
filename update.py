@@ -29,7 +29,6 @@ from tarfile import open as tarfile_open
 from time import ctime, strftime
 
 from domain2idna import get as domain2idna
-from PyFunceble import is_subdomain, syntax_check
 from requests import get
 
 
@@ -523,6 +522,8 @@ class DomainsList:
             - file: str
                 The file to read.
         """
+
+        from PyFunceble import is_subdomain, syntax_check
 
         result = []
 
