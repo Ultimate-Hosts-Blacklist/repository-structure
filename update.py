@@ -426,7 +426,9 @@ class PyFunceble:
             Update the cross repository configuration.
             """
 
-            if path.isfile(Settings.permanent_config_link.split("/")[-1]):
+            destination = Settings.permanent_config_link.split("/")[-1]
+
+            if path.isfile(destination):
                 if not Settings.stable:
                     to_download = Settings.PyFunceble[
                         ".PyFunceble_production.yaml"
@@ -438,33 +440,34 @@ class PyFunceble:
 
                 destination = Settings.permanent_config_link.split("/")[-1]
 
-                if path.isfile(destination):
-                    Helpers.Download(to_download, destination).link()
+                Helpers.Download(to_download, destination).link()
 
-                    to_replace = {
-                        r"less:.*": "less: False",
-                        r"plain_list_domain:.*": "plain_list_domain: True",
-                        r"seconds_before_http_timeout:.*": "seconds_before_http_timeout: 6",
-                        r"share_logs:.*": "share_logs: True",
-                        r"show_execution_time:.*": "show_execution_time: True",
-                        r"split:.*": "split: True",
-                        r"travis:.*": "travis: True",
-                        r"travis_autosave_commit:.*": 'travis_autosave_commit: "[Autosave] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
-                        r"travis_autosave_final_commit:.*": 'travis_autosave_final_commit: "[Results] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
-                        r"travis_branch:.*": "travis_branch: %s" % environ["GIT_BRANCH"],
-                        r"travis_autosave_minutes:.*": "travis_autosave_minutes: %s"
-                        % Settings.autosave_minutes,
-                    }
+                to_replace = {
+                    r"less:.*": "less: False",
+                    r"plain_list_domain:.*": "plain_list_domain: True",
+                    r"seconds_before_http_timeout:.*": "seconds_before_http_timeout: 6",
+                    r"share_logs:.*": "share_logs: True",
+                    r"show_execution_time:.*": "show_execution_time: True",
+                    r"split:.*": "split: True",
+                    r"travis:.*": "travis: True",
+                    r"travis_autosave_commit:.*": 'travis_autosave_commit: "[Autosave] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
+                    r"travis_autosave_final_commit:.*": 'travis_autosave_final_commit: "[Results] Testing for Ultimate Hosts Blacklist"',  # pylint: disable=line-too-long
+                    r"travis_branch:.*": "travis_branch: %s" % environ["GIT_BRANCH"],
+                    r"travis_autosave_minutes:.*": "travis_autosave_minutes: %s"
+                    % Settings.autosave_minutes,
+                }
 
-                    content = Helpers.File(destination).read()
+                content = Helpers.File(destination).read()
 
-                    for regex, replacement in to_replace.items():
-                        content = Helpers.Regex(
-                            content, regex, replace_with=replacement, return_data=True
-                        ).replace()
+                for regex, replacement in to_replace.items():
+                    content = Helpers.Regex(
+                        content, regex, replace_with=replacement, return_data=True
+                    ).replace()
 
-                    Helpers.File(destination).write(content, overwrite=True)
-                    Helpers.File(".PyFunceble.yaml").write(content, overwrite=True)
+                print(content)
+
+                Helpers.File(destination).write(content, overwrite=True)
+                Helpers.File(".PyFunceble.yaml").write(content, overwrite=True)
 
         @classmethod
         def install(cls):
