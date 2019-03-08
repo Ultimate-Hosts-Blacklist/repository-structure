@@ -409,7 +409,7 @@ class PyFunceble:
         except KeyError:
             pass
 
-        command_to_execute += "%s --directory-structure -q && "
+        command_to_execute += "%s --directory-structure -q && " % PyFunceble_path
 
         command_to_execute += "%s %s -f %s" % (
             PyFunceble_path,
