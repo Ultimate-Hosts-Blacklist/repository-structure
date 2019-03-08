@@ -510,6 +510,8 @@ class PyFunceble:
                         content, regex, replace_with=replacement, return_data=True
                     ).replace()
 
+                logging.info("Latest config: {}".format(content))
+
                 logging.info("Writting latest config into `{}`".format(destination))
                 Helpers.File(destination).write(content, overwrite=True)
                 logging.info("Writting latest config into `.PyFunceble.yaml`")
