@@ -402,12 +402,6 @@ class PyFunceble:
 
         command_to_execute = "%s -v && " % (PyFunceble_path)
 
-        try:
-            command_to_execute += (
-                "export TRAVIS_BUILD_DIR=%s && " % environ["TRAVIS_BUILD_DIR"]
-            )
-        except KeyError:
-            pass
         command_to_execute += "export PYFUNCEBLE_AUTO_CONFIGURATION=PyFunceble && "
         command_to_execute += "%s --directory-structure -q && " % PyFunceble_path
 
