@@ -235,7 +235,7 @@ class TravisCI:
             logging.info("Setting the push mode to `simple`.")
             Helpers.Command("git config --global push.default simple", False).execute()
 
-            logging.info("Checkout the right branch.")
+            logging.info("Checkout `{}`".format(environ["GIT_BRANCH"]))
             Helpers.Command("git checkout %s" % environ["GIT_BRANCH"], False).execute()
 
         except KeyError:
