@@ -31,9 +31,6 @@ from time import ctime, strftime
 
 from domain2idna import get as domain2idna
 from requests import get
-from yaml import dump as yaml_dump
-from yaml import load as yaml_load
-
 
 class Settings:  # pylint: disable=too-few-public-methods
     """
@@ -1270,6 +1267,12 @@ class Helpers:  # pylint: disable=too-few-public-methods
 
 
 if __name__ == "__main__":
+    try:
+        from yaml import dump as yaml_dump
+        from yaml import load as yaml_load
+    except ModuleNotFoundError:
+        print(Helpers.Command("pip install pyyaml --upgrade").execute())
+
     if "DEBUG" in environ:
         logging.basicConfig(
             format="%(asctime)-15s %(levelname)-8s %(message)s", level=logging.DEBUG
