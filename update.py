@@ -1273,7 +1273,7 @@ if __name__ == "__main__":
     except ModuleNotFoundError:
         Helpers.Command("pip install pyyaml --upgrade").execute()
 
-        from yaml import safe_dump as safe_dump
+        from yaml import safe_dump as yaml_dump
         from yaml import safe_load as yaml_load
 
     if "DEBUG" in environ:
