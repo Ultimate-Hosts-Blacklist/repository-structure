@@ -18,6 +18,7 @@ Contributors:
 # pylint: disable=bad-continuation, too-many-lines, logging-format-interpolation
 import logging
 from json import decoder, dump, loads
+from yaml import load as yaml_load, dump as yaml_dump
 from os import environ, getcwd, path, remove
 from os import sep as directory_separator
 from os import walk
@@ -52,6 +53,8 @@ class Settings:  # pylint: disable=too-few-public-methods
     # Example:
     # "https://raw.githubusercontent.com/AdAway/adaway.github.io/master/hosts.txt"
     raw_link = ""
+
+    travis_file = ".travis.yml"
 
     # This variable should be initiated with the name of the list once downloaded.
     # Recommended formats:
@@ -163,6 +166,11 @@ class Settings:  # pylint: disable=too-few-public-methods
     #
     # Note: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
     permanent_config_link = "https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/repository-structure/master/.PyFunceble_cross_input_sources.yaml"  # pylint: disable=line-too-long
+
+    # This variable is used to get the latest travis fil.
+    #
+    # Noe: DO NOT TOUCH UNLESS YOU KNOW WHAT IT MEANS!
+    permanent_travis_file_link = "https://raw.githubusercontent.com/Ultimate-Hosts-Blacklist/repository-structure/master/.travis.yml"  # pylint: disable=line-too-long
 
     # This variable is used to set the arguments when executing PyFunceble.py
     #
@@ -512,6 +520,96 @@ class PyFunceble:
                 Helpers.File(destination).write(content, overwrite=True)
                 logging.debug("Writting latest config into `.PyFunceble.yaml`")
                 Helpers.File(".PyFunceble.yaml").write(content, overwrite=True)
+            else:
+
+                try:
+                    _ = environ["TRAVIS_BUILD_DIR"]
+
+                    with open(
+                        Settings.current_directory + Settings.travis_file,
+                        "r",
+                        encoding="utf-8",
+                    ) as file_stream:
+                        local_data = yaml_load(file_stream)
+
+                    if not Settings.stable:
+                        to_download = Settings.permanent_travis_file_link.replace(
+                            "master", "dev"
+                        )
+                    else:
+                        to_download = Settings.permanent_travis_file_link.replace(
+                            "dev", "master"
+                        )
+
+                    upstream_data = yaml_load(
+                        Helpers.Download(to_download, None).link()
+                    )
+
+                    to_update = [
+                        "install",
+                        "notifications",
+                        "addons",
+                        "cache",
+                        "dist",
+                        "language",
+                        "matrix",
+                        "python",
+                        "script",
+                        "sudo",
+                    ]
+
+                    for index in to_update:
+                        local_data[index] = upstream_data[index]
+
+                    with open(
+                        Settings.current_directory + Settings.travis_file,
+                        "w",
+                        encoding="utf-8",
+                    ) as file_stream:
+                        file_stream.write(
+                            yaml_dump(
+                                local_data,
+                                encoding="utf-8",
+                                allow_unicode=True,
+                                indent=4,
+                                default_flow_style=False,
+                            ).decode("utf-8")
+                        )
+
+                    print(
+                        Helpers.Command(
+                            "git status --porcelain {0}".format(
+                                Settings.current_directory + Settings.travis_file
+                            ),
+                            allow_stdout=False,
+                        )
+                        .execute()
+                        .strip()
+                        .startswith("M")
+                    )
+
+                    if (
+                        Helpers.Command(
+                            "git status --porcelain {0}".format(
+                                Settings.current_directory + Settings.travis_file
+                            ),
+                            allow_stdout=False,
+                        )
+                        .execute()
+                        .strip()
+                        .startswith("M")
+                    ):
+                        print(
+                            Helpers.Command(
+                                "git add {0} && git commit -m 'Update of the configuration file' && git push origin {1}".format(
+                                    Settings.current_directory + Settings.travis_file,
+                                    environ["GIT_BRANCH"],
+                                )
+                            ).execute()
+                        )
+                        exit(0)
+                except KeyError:
+                    pass
 
         @classmethod
         def install(cls):
@@ -978,9 +1076,13 @@ class Helpers:  # pylint: disable=too-few-public-methods
                 request = get(self.link_to_download, stream=True)
 
                 if request.status_code == 200:
-                    with open(self.destination, "wb") as file:
-                        request.raw.decode_content = True
-                        copyfileobj(request.raw, file)
+                    request.raw.decode_content = True
+                    if self.destination:
+                        with open(self.destination, "wb") as file:
+                            request.raw.decode_content = True
+                            copyfileobj(request.raw, file)
+                    else:
+                        return request.text
 
                     del request
 
