@@ -211,10 +211,10 @@ class TravisCI:
         try:
             _ = environ["TRAVIS_BUILD_DIR"]
 
-            logging.info("Deletion of the remote origin.")
+            logging.debug("Deletion of the remote origin.")
             Helpers.Command("git remote rm origin", False).execute()
 
-            logging.info("Addition of the correct remote origin.")
+            logging.debug("Addition of the correct remote origin.")
             Helpers.Command(
                 "git remote add origin https://"
                 + "%s@github.com/%s.git"
@@ -222,20 +222,20 @@ class TravisCI:
                 False,
             ).execute()
 
-            logging.info("Addition of the GIT email.")
+            logging.debug("Addition of the GIT email.")
             Helpers.Command(
                 'git config --global user.email "%s"' % (environ["GIT_EMAIL"]), False
             ).execute()
 
-            logging.info("Addition of the GIT name.")
+            logging.debug("Addition of the GIT name.")
             Helpers.Command(
                 'git config --global user.name "%s"' % (environ["GIT_NAME"]), False
             ).execute()
 
-            logging.info("Setting the push mode to `simple`.")
+            logging.debug("Setting the push mode to `simple`.")
             Helpers.Command("git config --global push.default simple", False).execute()
 
-            logging.info("Checkout `{}`".format(environ["GIT_BRANCH"]))
+            logging.debug("Checkout `{}`".format(environ["GIT_BRANCH"]))
             Helpers.Command("git checkout %s" % environ["GIT_BRANCH"], False).execute()
 
         except KeyError:
@@ -258,7 +258,7 @@ class TravisCI:
             ]
 
             for command in commands:
-                logging.info("Executing: {0}".format(command))
+                logging.debug("Executing: {0}".format(command))
                 Helpers.Command(command, False).execute()
 
             if (
@@ -287,16 +287,16 @@ class PyFunceble:
         Install the right version of PyFunceble.
         """
 
-        logging.info("Starting of the installation process of PyFunceble.")
+        logging.debug("Starting of the installation process of PyFunceble.")
 
         if Settings.stable:
             to_download = "PyFunceble"
         else:
             to_download = "PyFunceble-dev"
 
-        logging.info("To download: {}".format(to_download))
+        logging.debug("To download: {}".format(to_download))
 
-        logging.info("Installing {}".format(to_download))
+        logging.debug("Installing {}".format(to_download))
         Helpers.Command("pip3 install --upgrade %s" % to_download, False).execute()
 
     @classmethod
@@ -313,11 +313,11 @@ class PyFunceble:
             else:
                 link = link.replace("dev", "master")
 
-            logging.info("Looking for `{}` at `{}`".format(file, link))
+            logging.debug("Looking for `{}` at `{}`".format(file, link))
             if not Helpers.Download(link, file_path).link():
                 raise Exception("Unable to download %s." % link)
 
-        logging.info("Deletion of old files.")
+        logging.debug("Deletion of old files.")
         Helpers.File(Settings.current_directory + "tool.py").delete()
         Helpers.File(Settings.current_directory + "PyFunceble.py").delete()
         Helpers.File(Settings.current_directory + "requirements.txt").delete()
@@ -329,7 +329,7 @@ class PyFunceble:
         """
 
         if path.isdir(Settings.current_directory + "output"):
-            logging.info("Starting of the cleaning process.")
+            logging.debug("Starting of the cleaning process.")
             Helpers.Command("PyFunceble --clean", False).execute()
 
     @classmethod
@@ -368,12 +368,12 @@ class PyFunceble:
             return_data=False,
             escape=False,
         ).match():
-            logging.info("Allowed because of launch marker.")
+            logging.debug("Allowed because of launch marker.")
             cls.clean()
             return True
 
         if not Settings.currently_under_test:
-            logging.info("Allowed because currently under test.")
+            logging.debug("Allowed because currently under test.")
             cls.clean()
             return True
 
@@ -383,13 +383,13 @@ class PyFunceble:
             )
 
             if int(strftime("%s")) >= retest_date or Settings.currently_under_test:
-                logging.info("Allowed because of time.")
+                logging.debug("Allowed because of time.")
                 return True
 
-            logging.info("Disallowed because of time.")
+            logging.debug("Disallowed because of time.")
             return False
 
-        logging.info("Allowed because of !?.")
+        logging.debug("Allowed because of !?.")
         return True
 
     @classmethod
@@ -412,29 +412,29 @@ class PyFunceble:
         )
 
         if cls.is_test_allowed():
-            logging.info("Downloading the latest project LICENSE.")
+            logging.debug("Downloading the latest project LICENSE.")
             Helpers.Download(
                 Settings.permanent_license_link, Settings.current_directory + "LICENSE"
             ).link()
 
-            logging.info("Update informations (info.json)")
+            logging.debug("Update informations (info.json)")
             Settings.informations.update(
                 {"last_test": strftime("%s"), "currently_under_test": str(int(True))}
             )
 
             for index in ["clean_list_file", "list_name"]:
                 if index in Settings.informations:
-                    logging.info(
+                    logging.debug(
                         "Deletion of `{}` from the administration file.".format(index)
                     )
                     del Settings.informations[index]
 
-            logging.info(
+            logging.debug(
                 "Latest administration content: {}".format(Settings.informations)
             )
             Helpers.Dict(Settings.informations).to_json(Settings.repository_info)
 
-            logging.info("Launching: {}".format(command_to_execute))
+            logging.debug("Launching: {}".format(command_to_execute))
 
             Helpers.Command(command_to_execute, True).execute()
 
@@ -459,10 +459,10 @@ class PyFunceble:
             """
 
             destination = Settings.permanent_config_link.split("/")[-1]
-            logging.info("Destination is {}".format(destination))
+            logging.debug("Destination is {}".format(destination))
 
             if path.isfile(destination):
-                logging.info("Destination file exists.")
+                logging.debug("Destination file exists.")
 
                 if not Settings.stable:
                     to_download = Settings.PyFunceble[
@@ -473,7 +473,7 @@ class PyFunceble:
                         ".PyFunceble_production.yaml"
                     ].replace("dev", "master")
 
-                logging.info(
+                logging.debug(
                     "Downloading `{}` into `{}`".format(to_download, destination)
                 )
                 Helpers.Download(to_download, destination).link()
@@ -506,11 +506,11 @@ class PyFunceble:
                         content, regex, replace_with=replacement, return_data=True
                     ).replace()
 
-                logging.info("Latest config: {}".format(content))
+                logging.debug("Latest config: {}".format(content))
 
-                logging.info("Writting latest config into `{}`".format(destination))
+                logging.debug("Writting latest config into `{}`".format(destination))
                 Helpers.File(destination).write(content, overwrite=True)
-                logging.info("Writting latest config into `.PyFunceble.yaml`")
+                logging.debug("Writting latest config into `.PyFunceble.yaml`")
                 Helpers.File(".PyFunceble.yaml").write(content, overwrite=True)
 
         @classmethod
@@ -734,9 +734,9 @@ class Administration:
         """
 
         if path.isfile(Settings.repository_info):
-            logging.info("Getting content of the info.json.")
+            logging.debug("Getting content of the info.json.")
             content = Helpers.File(Settings.repository_info).read()
-            logging.info("Content: {}".format(content))
+            logging.debug("Content: {}".format(content))
 
             Settings.informations = Helpers.Dict().from_json(content)
             to_ignore = ["raw_link", "name"]
@@ -752,7 +752,7 @@ class Administration:
                         'Please complete "%s" into %s'
                         % (index, Settings.repository_info)
                     )
-            logging.info("Content understood and decoded correctly.")
+            logging.debug("Content understood and decoded correctly.")
         else:
             raise Exception(
                 "Impossible to read %s" % Settings.current_directory + "info.json"
@@ -1169,7 +1169,7 @@ class Helpers:  # pylint: disable=too-few-public-methods
 if __name__ == "__main__":
     if "DEBUG" in environ:
         logging.basicConfig(
-            format="%(asctime)-15s %(levelname)-8s %(message)s", level=logging.INFO
+            format="%(asctime)-15s %(levelname)-8s %(message)s", level=logging.DEBUG
         )
 
     REPOSITORY_UPDATE = Administration()
