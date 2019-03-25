@@ -1273,6 +1273,9 @@ if __name__ == "__main__":
     except ModuleNotFoundError:
         print(Helpers.Command("pip install pyyaml --upgrade").execute())
 
+        from yaml import dump as yaml_dump
+        from yaml import load as yaml_load
+
     if "DEBUG" in environ:
         logging.basicConfig(
             format="%(asctime)-15s %(levelname)-8s %(message)s", level=logging.DEBUG
