@@ -18,7 +18,6 @@ Contributors:
 # pylint: disable=bad-continuation, too-many-lines, logging-format-interpolation
 import logging
 from json import decoder, dump, loads
-from yaml import load as yaml_load, dump as yaml_dump
 from os import environ, getcwd, path, remove
 from os import sep as directory_separator
 from os import walk
@@ -32,6 +31,8 @@ from time import ctime, strftime
 
 from domain2idna import get as domain2idna
 from requests import get
+from yaml import dump as yaml_dump
+from yaml import load as yaml_load
 
 
 class Settings:  # pylint: disable=too-few-public-methods
@@ -601,7 +602,7 @@ class PyFunceble:
                     ):
                         print(
                             Helpers.Command(
-                                "git add {0} && git commit -m 'Update of the configuration file' && git push origin {1}".format(
+                                "git add {0} && git commit -m 'Update of the configuration file' && git push origin {1}".format(  # pylint: disable=line-too-long
                                     Settings.current_directory + Settings.travis_file,
                                     environ["GIT_BRANCH"],
                                 )
