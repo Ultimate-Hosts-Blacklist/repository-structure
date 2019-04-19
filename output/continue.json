@@ -1,8 +1,19 @@
 {
-    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
-        "down": 0,
-        "invalid": 0,
-        "tested": 0,
-        "up": 0
-    }
+    "ACTIVE": [
+        "cliqz.com",
+        "github.com",
+        "hpn-collector.cliqz.com",
+        "www.cliqz.com",
+        "www.github.com"
+    ],
+    "INACTIVE": [
+        "securepubads.g.doubleclick.net",
+        "www.xn--methrwallt-26ar0z.com",
+        "www.xn--mytherwllet-r8a0c.com",
+        "xn--methrwallt-26ar0z.com",
+        "xn--mytherwllet-r8a0c.com"
+    ],
+    "INVALID": [
+        "||google.com^"
+    ]
 }

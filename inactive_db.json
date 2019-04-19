@@ -1,6 +1,6 @@
 {
-    "/home/travis/build/Ultimate-Hosts-Blacklist/repository-structure/domains.list": {
-        "1555599971": [
+    "api_call": {
+        "1555684117": [
             "securepubads.g.doubleclick.net",
             "www.xn--methrwallt-26ar0z.com",
             "www.xn--mytherwllet-r8a0c.com",
@@ -8,9 +8,6 @@
             "xn--mytherwllet-r8a0c.com",
             "||google.com^"
         ],
-        "to_test": [
-            "myètherwället.com",
-            "mÿethèrwallét.com"
-        ]
+        "to_test": []
     }
 }
