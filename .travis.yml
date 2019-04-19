@@ -31,6 +31,7 @@ install:
   - pip3 install ultimate-hosts-blacklist-input-repo-updater
 
 script:
+  - ultimate-hosts-blacklist-input-repo-updater --version
   - ultimate-hosts-blacklist-input-repo-updater
 
 notifications:
