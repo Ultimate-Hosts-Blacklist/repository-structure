@@ -37,7 +37,7 @@ local: False
 # Enable / Disable the output of every logs.
 logs: True
 # Enable / Disable the generation of any file(s).
-no_files: True
+no_files: False
 # Enable / Disable the usage of the SPECIAL rule(s).
 no_special: False
 # Enable / Disable the usage of whois in the tests.
