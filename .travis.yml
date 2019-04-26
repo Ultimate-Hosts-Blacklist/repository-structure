@@ -32,7 +32,7 @@ install:
 
 script:
   - ultimate-hosts-blacklist-input-repo-updater --version
-  - ultimate-hosts-blacklist-input-repo-updater -m
+  - ultimate-hosts-blacklist-input-repo-updater -m -d
 
 notifications:
   email:
