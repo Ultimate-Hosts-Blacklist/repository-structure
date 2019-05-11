@@ -32,6 +32,8 @@ install:
 
 script:
   - cat /etc/resolv.conf
+  - sudo printf "nameserver 1.1.1.1\nnameserver 1.0.0.1\n" > /etc/resolv.conf
+  - dig funilrys.com | grep SERVER
   - ultimate-hosts-blacklist-input-repo-updater --version
   - ultimate-hosts-blacklist-input-repo-updater -m
 
