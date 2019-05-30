@@ -28,11 +28,11 @@ addons:
 
 install:
   - pip3 install --upgrade pip
-  - pip3 install ultimate-hosts-blacklist-input-repo-updater -d
+  - pip3 install ultimate-hosts-blacklist-input-repo-updater
 
 script:
   - ultimate-hosts-blacklist-input-repo-updater --version
-  - ultimate-hosts-blacklist-input-repo-updater -m
+  - ultimate-hosts-blacklist-input-repo-updater -m -d
 
 notifications:
   email:
