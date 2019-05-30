@@ -28,7 +28,7 @@ addons:
 
 install:
   - pip3 install --upgrade pip
-  - pip3 install ultimate-hosts-blacklist-input-repo-updater
+  - pip3 install ultimate-hosts-blacklist-input-repo-updater -d
 
 script:
   - ultimate-hosts-blacklist-input-repo-updater --version
