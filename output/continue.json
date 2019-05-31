@@ -5,5 +5,11 @@
         "hpn-collector.cliqz.com",
         "github.com",
         "www.github.com"
+    ],
+    "INACTIVE": [
+        "securepubads.g.doubleclick.net"
+    ],
+    "INVALID": [
+        "||google.com^"
     ]
 }
