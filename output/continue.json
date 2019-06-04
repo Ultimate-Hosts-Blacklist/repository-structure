@@ -8,5 +8,8 @@
     ],
     "INACTIVE": [
         "securepubads.g.doubleclick.net"
+    ],
+    "INVALID": [
+        "||google.com^"
     ]
 }
