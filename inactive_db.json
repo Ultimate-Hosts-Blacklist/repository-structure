@@ -4,8 +4,6 @@
             "securepubads.g.doubleclick.net",
             "||google.com^"
         ],
-        "to_test": [
-            "securepubads.g.doubleclick.net"
-        ]
+        "to_test": []
     }
 }
