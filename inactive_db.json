@@ -1,10 +1,11 @@
 {
     "api_call": {
-        "1560439210": [
+        "1560525928": [
             "securepubads.g.doubleclick.net",
             "||google.com^"
         ],
         "to_test": [
+            "securepubads.g.doubleclick.net",
             "||google.com^"
         ]
     }
