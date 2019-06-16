@@ -1,8 +1,7 @@
 {
     "api_call": {
-        "1560525928": [
-            "securepubads.g.doubleclick.net",
-            "||google.com^"
+        "1560698689": [
+            "securepubads.g.doubleclick.net"
         ],
         "to_test": [
             "securepubads.g.doubleclick.net",
