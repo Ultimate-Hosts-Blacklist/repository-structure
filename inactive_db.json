@@ -1,14 +1,8 @@
 {
     "api_call": {
-        "1560698500": {
-            "securepubads.g.doubleclick.net": ""
-        },
-        "1560698689": {
-            "securepubads.g.doubleclick.net": "INACTIVE"
-        },
-        "1560871740": {
-            "securepubads.g.doubleclick.net": "INACTIVE"
-        },
+        "1560698500": {},
+        "1560698689": {},
+        "1560871740": {},
         "1560958588": {
             "securepubads.g.doubleclick.net": "INACTIVE",
             "||google.com^": "INVALID"
