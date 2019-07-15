@@ -19,10 +19,11 @@
         "1562427248": {},
         "1562600276": {},
         "1562773218": {},
-        "1562945528": {
-            "||google.com^": "INVALID"
-        },
+        "1562945528": {},
         "1563118309": {
+            "securepubads.g.doubleclick.net": "INACTIVE"
+        },
+        "1563204817": {
             "securepubads.g.doubleclick.net": "INACTIVE",
             "||google.com^": "INVALID"
         }
