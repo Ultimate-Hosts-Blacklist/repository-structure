@@ -133,7 +133,8 @@
         "net.ai",
         "nom.ai",
         "off.ai",
-        "org.ai"
+        "org.ai",
+        "uwu.ai"
     ],
     "al": [
         "blogspot.al",
@@ -146,7 +147,12 @@
         "org.al"
     ],
     "am": [
-        "blogspot.am"
+        "blogspot.am",
+        "co.am",
+        "com.am",
+        "commune.am",
+        "net.am",
+        "org.am"
     ],
     "ao": [
         "co.ao",
@@ -159,8 +165,11 @@
     "app": [
         "a.run.app",
         "hasura.app",
+        "loginline.app",
         "run.app",
-        "telebit.app"
+        "telebit.app",
+        "web.app",
+        "wnext.app"
     ],
     "ar": [
         "blogspot.com.ar",
@@ -349,6 +358,7 @@
         "org.bi"
     ],
     "biz": [
+        "bpl.biz",
         "cloudns.biz",
         "dscloud.biz",
         "dyndns.biz",
@@ -359,6 +369,7 @@
         "mmafan.biz",
         "myftp.biz",
         "no-ip.biz",
+        "orx.biz",
         "selfip.biz",
         "webhop.biz"
     ],
@@ -376,6 +387,7 @@
         "org.bm"
     ],
     "bn": [
+        "co.bn",
         "com.bn",
         "edu.bn",
         "gov.bn",
@@ -595,6 +607,7 @@
         "sp.leg.br",
         "srv.br",
         "taxi.br",
+        "tc.br",
         "teo.br",
         "the.br",
         "tmp.br",
@@ -652,6 +665,7 @@
     "ca": [
         "ab.ca",
         "awdev.ca",
+        "barsy.ca",
         "bc.ca",
         "blogspot.ca",
         "co.ca",
@@ -669,6 +683,9 @@
         "qc.ca",
         "sk.ca",
         "yk.ca"
+    ],
+    "casa": [
+        "ui.nabu.casa"
     ],
     "cc": [
         "cloudns.cc",
@@ -703,6 +720,7 @@
         "com.ci",
         "ed.ci",
         "edu.ci",
+        "fin.ci",
         "go.ci",
         "gouv.ci",
         "int.ci",
@@ -712,6 +730,9 @@
         "org.ci",
         "presse.ci",
         "xn--aroport-bya.ci"
+    ],
+    "city": [
+        "ng.city"
     ],
     "ck": [
         "!www.ck",
@@ -728,14 +749,17 @@
     "cloud": [
         "linkyard.cloud",
         "magentosite.cloud",
+        "on-rancher.cloud",
         "sensiosite.cloud",
         "statics.cloud",
         "trafficplex.cloud",
-        "vapor.cloud"
+        "vapor.cloud",
+        "voorloper.cloud"
     ],
     "club": [
         "barsy.club",
-        "cloudns.club"
+        "cloudns.club",
+        "pony.club"
     ],
     "cm": [
         "co.cm",
@@ -798,7 +822,9 @@
     "co": [
         "arts.co",
         "blogspot.com.co",
+        "carrd.co",
         "com.co",
+        "crd.co",
         "edu.co",
         "firm.co",
         "go-vip.co",
@@ -816,6 +842,7 @@
         "org.co",
         "otap.co",
         "rec.co",
+        "repl.co",
         "web.co"
     ],
     "com": [
@@ -835,11 +862,13 @@
         "ap-southeast-2.elasticbeanstalk.com",
         "api.stdlib.com",
         "app.lmpm.com",
+        "app.render.com",
         "appchizi.com",
         "applinzi.com",
         "apps.fbsbx.com",
         "appspot.com",
         "ar.com",
+        "balena-devices.com",
         "barsycenter.com",
         "barsyonline.com",
         "beta.bounty-full.com",
@@ -1060,6 +1089,7 @@
         "logoip.com",
         "loseyourip.com",
         "lpusercontent.com",
+        "members.linode.com",
         "meteorapp.com",
         "mex.com",
         "miniserver.com",
@@ -1080,7 +1110,9 @@
         "netlify.com",
         "nfshost.com",
         "no.com",
+        "nodebalancer.linode.com",
         "on-aptible.com",
+        "onrender.com",
         "onthewifi.com",
         "ooguy.com",
         "operaunite.com",
@@ -1179,10 +1211,12 @@
         "simple-url.com",
         "sinaapp.com",
         "space-to-rent.com",
+        "stackhero-network.com",
         "stufftoread.com",
         "teaches-yoga.com",
         "temp-dns.com",
         "theworkpc.com",
+        "thingdustdata.com",
         "townnews-staging.com",
         "u2-local.xnbay.com",
         "u2.xnbay.com",
@@ -1201,6 +1235,7 @@
         "us.com",
         "uy.com",
         "vipsinaapp.com",
+        "wafflecell.com",
         "withgoogle.com",
         "withyoutube.com",
         "workisboring.com",
@@ -1344,6 +1379,16 @@
     "design": [
         "bss.design"
     ],
+    "dev": [
+        "lcl.dev",
+        "loginline.dev",
+        "stg.dev",
+        "workers.dev"
+    ],
+    "digital": [
+        "cloudapps.digital",
+        "london.cloudapps.digital"
+    ],
     "direct": [
         "fastpanel.direct"
     ],
@@ -1401,6 +1446,9 @@
         "net.ec",
         "org.ec",
         "pro.ec"
+    ],
+    "edu": [
+        "git-pages.rit.edu"
     ],
     "education": [
         "co.education"
@@ -1475,11 +1523,16 @@
     "farm": [
         "storj.farm"
     ],
+    "fashion": [
+        "of.fashion",
+        "on.fashion"
+    ],
     "fi": [
         "aland.fi",
         "blogspot.fi",
         "dy.fi",
-        "iki.fi"
+        "iki.fi",
+        "xn--hkkinen-5wa.fi"
     ],
     "financial": [
         "co.financial"
@@ -1493,9 +1546,11 @@
     "fk": [
         "fk"
     ],
+    "football": [
+        "of.football"
+    ],
     "fr": [
         "aeroport.fr",
-        "assedic.fr",
         "asso.fr",
         "avocat.fr",
         "avoues.fr",
@@ -1521,7 +1576,6 @@
         "pharmacien.fr",
         "port.fr",
         "prd.fr",
-        "presse.fr",
         "tm.fr",
         "veterinaire.fr"
     ],
@@ -1544,6 +1598,7 @@
     "gg": [
         "co.gg",
         "cya.gg",
+        "kaas.gg",
         "net.gg",
         "org.gg"
     ],
@@ -1563,6 +1618,7 @@
         "org.gi"
     ],
     "gl": [
+        "biz.gl",
         "co.gl",
         "com.gl",
         "edu.gl",
@@ -1597,6 +1653,9 @@
         "net.gr",
         "nym.gr",
         "org.gr"
+    ],
+    "group": [
+        "discourse.group"
     ],
     "gt": [
         "com.gt",
@@ -1674,6 +1733,7 @@
     "hr": [
         "blogspot.hr",
         "com.hr",
+        "free.hr",
         "from.hr",
         "iz.hr",
         "name.hr"
@@ -1815,17 +1875,23 @@
         "v-info.info",
         "webhop.info"
     ],
+    "ink": [
+        "ng.ink"
+    ],
     "int": [
         "eu.int"
     ],
     "io": [
         "2038.io",
         "apigee.io",
+        "app.banzaicloud.io",
         "applicationcloud.io",
         "apps.lair.io",
         "azurecontainer.io",
+        "b-data.io",
         "backplaneapp.io",
         "barsy.io",
+        "basicserver.io",
         "boxfuse.io",
         "browsersafetymark.io",
         "cleverapps.io",
@@ -1839,14 +1905,19 @@
         "definima.io",
         "devices.resinstaging.io",
         "drud.io",
+        "dyn53.io",
         "enonic.io",
         "github.io",
         "gitlab.io",
         "hasura-app.io",
         "hzc.io",
+        "loginline.io",
+        "mo-siemens.io",
+        "moonscale.io",
         "ngrok.io",
         "nid.io",
         "nodum.io",
+        "on-rio.io",
         "pantheonsite.io",
         "protonet.io",
         "readthedocs.io",
@@ -1859,8 +1930,10 @@
         "stage.nodeart.io",
         "stolos.io",
         "telebit.io",
+        "uk0.bigv.io",
         "utwente.io",
         "vaporcloud.io",
+        "virtualserver.io",
         "wedeploy.io"
     ],
     "iq": [
@@ -2184,6 +2257,7 @@
         "ss.it",
         "suedtirol.it",
         "sv.it",
+        "syncloud.it",
         "ta.it",
         "taa.it",
         "taranto.it",
@@ -2541,6 +2615,7 @@
         "futtsu.chiba.jp",
         "gamagori.aichi.jp",
         "gamo.shiga.jp",
+        "gehirn.ne.jp",
         "geisei.kochi.jp",
         "genkai.saga.jp",
         "gifu.gifu.jp",
@@ -3941,6 +4016,7 @@
         "uruma.okinawa.jp",
         "uryu.hokkaido.jp",
         "usa.oita.jp",
+        "usercontent.jp",
         "ushiku.ibaraki.jp",
         "usui.fukuoka.jp",
         "usuki.oita.jp",
@@ -4279,11 +4355,13 @@
     ],
     "li": [
         "blogspot.li",
+        "caa.li",
         "nom.li",
         "nym.li"
     ],
     "link": [
         "cyon.link",
+        "dweb.link",
         "mypep.link"
     ],
     "lk": [
@@ -4302,6 +4380,10 @@
         "sch.lk",
         "soc.lk",
         "web.lk"
+    ],
+    "london": [
+        "in.london",
+        "of.london"
     ],
     "lr": [
         "com.lr",
@@ -4389,6 +4471,7 @@
         "filegear-jp.me",
         "filegear-sg.me",
         "filegear.me",
+        "glitch.me",
         "gov.me",
         "hopto.me",
         "i234.me",
@@ -4396,6 +4479,7 @@
         "localhost.daplie.me",
         "loginto.me",
         "myds.me",
+        "nctu.me",
         "net.me",
         "nohost.me",
         "noip.me",
@@ -4409,6 +4493,9 @@
         "webhop.me",
         "wedeploy.me",
         "yombo.me"
+    ],
+    "men": [
+        "for.men"
     ],
     "menu": [
         "barsy.menu"
@@ -4465,6 +4552,10 @@
         "barsy.mobi",
         "dscloud.mobi"
     ],
+    "mom": [
+        "and.mom",
+        "for.mom"
+    ],
     "mr": [
         "blogspot.mr",
         "gov.mr"
@@ -4473,6 +4564,7 @@
         "com.ms",
         "edu.ms",
         "gov.ms",
+        "lab.ms",
         "net.ms",
         "org.ms"
     ],
@@ -5183,6 +5275,7 @@
         "gets-it.net",
         "global.prod.fastly.net",
         "global.ssl.fastly.net",
+        "go-vip.net",
         "ham-radio-op.net",
         "hicam.net",
         "homeftp.net",
@@ -5194,12 +5287,14 @@
         "in-the-band.net",
         "in-vpn.net",
         "in.net",
+        "iobb.net",
         "ipifony.net",
         "is-a-chef.net",
         "is-a-geek.net",
         "isa-geek.net",
         "jp.net",
         "kicks-ass.net",
+        "kinghost.net",
         "knx-server.net",
         "map.fastly.net",
         "map.fastlylb.net",
@@ -5234,6 +5329,7 @@
         "serveftp.net",
         "serveminecraft.net",
         "siteleaf.net",
+        "soc.srcf.net",
         "square7.net",
         "static-access.net",
         "sytes.net",
@@ -5241,12 +5337,16 @@
         "thruhere.net",
         "twmail.net",
         "uk.net",
+        "uni5.net",
+        "user.srcf.net",
         "vpndns.net",
         "webhop.net",
         "za.net"
     ],
     "network": [
         "alces.network",
+        "arvo.network",
+        "azimuth.network",
         "co.network"
     ],
     "nf": [
@@ -5263,10 +5363,13 @@
     ],
     "ng": [
         "blogspot.com.ng",
+        "col.ng",
         "com.ng",
         "edu.ng",
+        "gen.ng",
         "gov.ng",
         "i.ng",
+        "ltd.ng",
         "mil.ng",
         "mobi.ng",
         "name.ng",
@@ -5296,6 +5399,7 @@
         "co.nl",
         "demon.nl",
         "hosting-cluster.nl",
+        "khplay.nl",
         "transurl.nl",
         "virtueeldomein.nl"
     ],
@@ -6069,10 +6173,12 @@
         "org.nr"
     ],
     "nu": [
+        "enterprisecloud.nu",
         "merseine.nu",
         "mine.nu",
         "nom.nu",
-        "shacknet.nu"
+        "shacknet.nu",
+        "site.builder.nu"
     ],
     "nz": [
         "ac.nz",
@@ -6106,7 +6212,10 @@
         "pro.om"
     ],
     "one": [
-        "homelink.one"
+        "for.one",
+        "homelink.one",
+        "onred.one",
+        "staging.onred.one"
     ],
     "online": [
         "barsy.online"
@@ -6157,6 +6266,7 @@
         "dyndns.org",
         "dynserv.org",
         "edu.eu.org",
+        "edugit.org",
         "ee.eu.org",
         "endofinternet.org",
         "endoftheinternet.org",
@@ -6296,6 +6406,9 @@
         "nom.pa",
         "org.pa",
         "sld.pa"
+    ],
+    "page": [
+        "prvcy.page"
     ],
     "party": [
         "ybo.party"
@@ -6711,7 +6824,8 @@
         "in.rs",
         "nom.rs",
         "org.rs",
-        "ox.rs"
+        "ox.rs",
+        "ua.rs"
     ],
     "ru": [
         "ac.ru",
@@ -6753,18 +6867,17 @@
     ],
     "run": [
         "development.run",
-        "ravendb.run"
+        "ravendb.run",
+        "repl.run"
     ],
     "rw": [
         "ac.rw",
         "co.rw",
-        "com.rw",
-        "edu.rw",
-        "gouv.rw",
+        "coop.rw",
         "gov.rw",
-        "int.rw",
         "mil.rw",
-        "net.rw"
+        "net.rw",
+        "org.rw"
     ],
     "sa": [
         "com.sa",
@@ -6775,6 +6888,9 @@
         "org.sa",
         "pub.sa",
         "sch.sa"
+    ],
+    "sale": [
+        "for.sale"
     ],
     "sb": [
         "com.sb",
@@ -6812,6 +6928,7 @@
         "brand.se",
         "c.se",
         "com.se",
+        "conf.se",
         "d.se",
         "e.se",
         "f.se",
@@ -6846,6 +6963,9 @@
         "y.se",
         "z.se"
     ],
+    "services": [
+        "loginline.services"
+    ],
     "sg": [
         "blogspot.sg",
         "com.sg",
@@ -6876,7 +6996,9 @@
     "site": [
         "barsy.site",
         "byen.site",
+        "cloudera.site",
         "cyon.site",
+        "loginline.site",
         "platformsh.site"
     ],
     "sk": [
@@ -6903,7 +7025,8 @@
     "so": [
         "com.so",
         "net.so",
-        "org.so"
+        "org.so",
+        "sch.so"
     ],
     "space": [
         "linkitools.space",
@@ -7116,6 +7239,7 @@
         "org.tr",
         "pol.tr",
         "tel.tr",
+        "tsk.tr",
         "tv.tr",
         "web.tr"
     ],
@@ -7621,6 +7745,10 @@
         "net.vu",
         "org.vu"
     ],
+    "work": [
+        "of.work",
+        "to.work"
+    ],
     "ws": [
         "advisor.ws",
         "cloud66.ws",
@@ -7700,6 +7828,7 @@
         "sch.zm"
     ],
     "zone": [
+        "cloud66.zone",
         "lima.zone",
         "triton.zone"
     ],
