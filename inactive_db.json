@@ -44,8 +44,10 @@
             "||google.com^": "INVALID"
         },
         "1565625110": {
-            "securepubads.g.doubleclick.net": "INACTIVE",
             "||google.com^": "INVALID"
+        },
+        "1565711814": {
+            "securepubads.g.doubleclick.net": "INACTIVE"
         }
     }
 }
