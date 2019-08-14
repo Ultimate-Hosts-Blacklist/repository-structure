@@ -37,17 +37,12 @@
         "1565020130": {},
         "1565192542": {},
         "1565279072": {},
-        "1565365584": {
-            "||google.com^": "INVALID"
-        },
-        "1565538449": {
-            "||google.com^": "INVALID"
-        },
-        "1565625110": {
-            "||google.com^": "INVALID"
-        },
+        "1565365584": {},
+        "1565538449": {},
+        "1565625110": {},
         "1565711814": {
-            "securepubads.g.doubleclick.net": "INACTIVE"
+            "securepubads.g.doubleclick.net": "INACTIVE",
+            "||google.com^": "INVALID"
         }
     }
 }
