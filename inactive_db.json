@@ -43,10 +43,11 @@
         "1565711814": {},
         "1565883910": {},
         "1565970499": {},
-        "1566056988": {
-            "||google.com^": "INVALID"
-        },
+        "1566056988": {},
         "1566143398": {
+            "securepubads.g.doubleclick.net": "INACTIVE"
+        },
+        "1566230142": {
             "securepubads.g.doubleclick.net": "INACTIVE",
             "||google.com^": "INVALID"
         }
