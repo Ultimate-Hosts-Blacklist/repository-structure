@@ -1,8 +1,8 @@
 {
     "currently_under_test": "0",
     "days_until_next_test": 2,
-    "end_datetime": "Mon Sep 16 22:21:41 2019",
-    "end_epoch": 1568672501.166555,
+    "end_datetime": "Tue Sep 17 10:07:21 2019",
+    "end_epoch": 1568714841.114111,
     "last_autosave_datetime": "Sun Jun  9 15:30:13 2019",
     "last_autosave_epoch": 1560094213.03392,
     "name": "repository-structure",
@@ -10,14 +10,14 @@
         "builds": 1,
         "counter": {
             "down": 0,
-            "invalid": 1,
-            "tested": 6,
+            "invalid": 0,
+            "tested": 5,
             "up": 5
         },
         "volatile.list": 3,
         "whitelisted.list": 3
     },
     "raw_link": "",
-    "start_datetime": "Mon Sep 16 22:21:39 2019",
-    "start_epoch": 1568672499.179664
+    "start_datetime": "Tue Sep 17 10:07:19 2019",
+    "start_epoch": 1568714839.200215
 }
