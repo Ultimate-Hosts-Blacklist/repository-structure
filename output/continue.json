@@ -1,9 +1,8 @@
 {
     "ACTIVE": [
-        "www.cliqz.com",
         "cliqz.com",
-        "www.github.com",
-        "github.com"
+        "www.cliqz.com",
+        "www.github.com"
     ],
     "INACTIVE": [
         "securepubads.g.doubleclick.net"
