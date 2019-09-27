@@ -1,10 +1,8 @@
 {
     "ACTIVE": [
-        "cliqz.com",
         "www.github.com",
-        "github.com"
-    ],
-    "INVALID": [
-        "||google.com^"
+        "github.com",
+        "www.cliqz.com",
+        "cliqz.com"
     ]
 }
