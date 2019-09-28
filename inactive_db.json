@@ -72,11 +72,10 @@
         "1569233413": {},
         "1569341309": {},
         "1569427735": {},
-        "1569517317": {
-            "||google.com^": "INVALID"
-        },
+        "1569517317": {},
         "1569665344": {
-            "securepubads.g.doubleclick.net": "INACTIVE"
+            "securepubads.g.doubleclick.net": "INACTIVE",
+            "||google.com^": "INVALID"
         }
     }
 }
