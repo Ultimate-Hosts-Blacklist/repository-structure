@@ -6,8 +6,8 @@
         "www.cliqz.com"
     ],
     "INACTIVE": [
-        "securepubads.g.doubleclick.net",
-        "hpn-collector.cliqz.com"
+        "hpn-collector.cliqz.com",
+        "securepubads.g.doubleclick.net"
     ],
     "INVALID": [
         "||google.com^"
