@@ -1,12 +1,7 @@
 {
     "cliqz.com": {
-        "epoch": 1580774400,
+        "epoch": 1580774400.0,
         "expiration_date": "04-feb-2020",
-        "state": "future"
-    },
-    "github.com": {
-        "epoch": 1602201600,
-        "expiration_date": "09-oct-2020",
         "state": "future"
     }
 }
