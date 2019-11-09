@@ -1,9 +1,9 @@
 {
     "ACTIVE": [
         "www.github.com",
-        "www.cliqz.com",
         "github.com",
-        "cliqz.com"
+        "cliqz.com",
+        "www.cliqz.com"
     ],
     "INACTIVE": [
         "hpn-collector.cliqz.com",
