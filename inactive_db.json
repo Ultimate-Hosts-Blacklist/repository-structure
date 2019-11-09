@@ -1,11 +1,13 @@
 {
     "api_call": {
         "1569665344": {
-            "securepubads.g.doubleclick.net": "INACTIVE",
             "||google.com^": "INVALID"
         },
         "1573318916": {
             "hpn-collector.cliqz.com": "INACTIVE"
+        },
+        "1573337043": {
+            "securepubads.g.doubleclick.net": "INACTIVE"
         }
     }
 }
