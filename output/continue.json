@@ -1,10 +1,10 @@
 {
     "ACTIVE": [
         "securepubads.g.doubleclick.net",
-        "cliqz.com",
-        "www.cliqz.com",
-        "github.com",
         "hpn-collector.cliqz.com",
-        "www.github.com"
+        "github.com",
+        "www.github.com",
+        "cliqz.com",
+        "www.cliqz.com"
     ]
 }
