@@ -6,8 +6,5 @@
         "www.github.com",
         "securepubads.g.doubleclick.net",
         "hpn-collector.cliqz.com"
-    ],
-    "INVALID": [
-        "||google.com^"
     ]
 }
