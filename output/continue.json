@@ -3,11 +3,8 @@
         "cliqz.com",
         "www.cliqz.com",
         "securepubads.g.doubleclick.net",
-        "hpn-collector.cliqz.com",
         "github.com",
-        "www.github.com"
-    ],
-    "INVALID": [
-        "||google.com^"
+        "www.github.com",
+        "hpn-collector.cliqz.com"
     ]
 }
