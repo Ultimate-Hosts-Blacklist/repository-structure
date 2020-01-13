@@ -6,5 +6,8 @@
         "github.com",
         "www.github.com",
         "hpn-collector.cliqz.com"
+    ],
+    "INVALID": [
+        "||google.com^"
     ]
 }
