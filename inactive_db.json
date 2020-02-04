@@ -2,6 +2,9 @@
     "api_call": {
         "1580761151": {
             "||google.com^": "INVALID"
+        },
+        "1580812257": {
+            "hpn-collector.cliqz.com": "INACTIVE"
         }
     }
 }
