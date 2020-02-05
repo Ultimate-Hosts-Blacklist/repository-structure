@@ -1,9 +1,12 @@
 {
     "ACTIVE": [
-        "github.com",
-        "www.github.com",
+        "securepubads.g.doubleclick.net",
         "cliqz.com",
         "www.cliqz.com",
-        "securepubads.g.doubleclick.net"
+        "github.com",
+        "www.github.com"
+    ],
+    "INVALID": [
+        "||google.com^"
     ]
 }
