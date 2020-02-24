@@ -1,14 +1,11 @@
 {
     "ACTIVE": [
-        "github.com",
-        "www.github.com",
-        "securepubads.g.doubleclick.net",
         "hpn-collector.cliqz.com",
         "cliqz.com",
         "www.cliqz.com",
+        "github.com",
+        "www.github.com",
+        "securepubads.g.doubleclick.net",
         "1.1.1.1"
-    ],
-    "INVALID": [
-        "||google.com^"
     ]
 }
