@@ -1,8 +1,8 @@
 {
     "currently_under_test": "0",
     "days_until_next_test": 2,
-    "end_datetime": "Mon Mar  2 17:59:47 2020",
-    "end_epoch": 1583171987.313404,
+    "end_datetime": "Mon Mar  2 22:46:38 2020",
+    "end_epoch": 1583189198.037798,
     "last_autosave_datetime": "Sun Jun  9 15:30:13 2019",
     "last_autosave_epoch": 1560094213.03392,
     "name": "repository-structure",
@@ -11,16 +11,16 @@
         "clean.list": 6,
         "counter": {
             "down": 0,
-            "invalid": 1,
-            "tested": 8,
+            "invalid": 0,
+            "tested": 7,
             "up": 7
         },
-        "domains.list": 8,
+        "domains.list": 7,
         "ip.list": 1,
         "volatile.list": 4,
         "whitelisted.list": 4
     },
     "raw_link": "",
-    "start_datetime": "Mon Mar  2 17:59:45 2020",
-    "start_epoch": 1583171985.290526
+    "start_datetime": "Mon Mar  2 22:46:36 2020",
+    "start_epoch": 1583189196.156715
 }
