@@ -8,8 +8,8 @@
     "name": "repository-structure",
     "previous_stats": {
         "builds": 1,
-        "clean.list": 6,
-        "clean_list": 7,
+        "clean.list": 5,
+        "clean_list": 6,
         "counter": {
             "down": 0,
             "invalid": 0,
@@ -21,10 +21,10 @@
         },
         "domains.list": 7,
         "ip.list": 1,
-        "volatile.list": 4,
-        "whitelisted.list": 4
+        "volatile.list": 3,
+        "whitelisted.list": 3
     },
     "raw_link": "",
-    "start_datetime": "2020-04-11T18:41:34.008214",
-    "start_epoch": 1586630494.008214
+    "start_datetime": "2020-04-12T18:57:45.767843",
+    "start_epoch": 1586717865.767843
 }
