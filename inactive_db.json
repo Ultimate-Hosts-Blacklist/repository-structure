@@ -1,151 +1,18 @@
 {
     "api_call": {
-        "1583171987": {
-            "||google.com^": "INVALID"
+        "hpn-collector.cliqz.com": {
+            "included_at_epoch": 1586977111.0,
+            "included_at_iso": "2020-04-15T18:58:31",
+            "last_retested_at_epoch": 1586977111.0,
+            "last_retested_at_iso": "2020-04-15T18:58:31",
+            "status": "INACTIVE"
         },
-        "1583260029": {
-            "||google.com^": "INVALID"
-        },
-        "1583347272": {
-            "||google.com^": "INVALID"
-        },
-        "1583492234": {
-            "||google.com^": "INVALID"
-        },
-        "1583667621": {
-            "||google.com^": "INVALID"
-        },
-        "1583778372": {
-            "||google.com^": "INVALID"
-        },
-        "1583865147": {
-            "||google.com^": "INVALID"
-        },
-        "1584037727": {
-            "||google.com^": "INVALID"
-        },
-        "1584140102": {
-            "||google.com^": "INVALID"
-        },
-        "1584270388": {
-            "||google.com^": "INVALID"
-        },
-        "1584382631": {
-            "||google.com^": "INVALID"
-        },
-        "1584470120": {
-            "||google.com^": "INVALID"
-        },
-        "1584642877": {
-            "||google.com^": "INVALID"
-        },
-        "1584729479": {
-            "||google.com^": "INVALID"
-        },
-        "1584900407": {
-            "||google.com^": "INVALID"
-        },
-        "1584988630": {
-            "||google.com^": "INVALID"
-        },
-        "1585160076": {
-            "||google.com^": "INVALID"
-        },
-        "1585247584": {
-            "||google.com^": "INVALID"
-        },
-        "1585392543": {
-            "||google.com^": "INVALID"
-        },
-        "1585504354": {
-            "||google.com^": "INVALID"
-        },
-        "1585593904": {
-            "||google.com^": "INVALID"
-        },
-        "1585738474": {
-            "||google.com^": "INVALID"
-        },
-        "1585825187": {
-            "||google.com^": "INVALID"
-        },
-        "1585938704": {
-            "||google.com^": "INVALID"
-        },
-        "1586025422": {
-            "||google.com^": "INVALID"
-        },
-        "1586112331": {
-            "||google.com^": "INVALID"
-        },
-        "1586284652": {
-            "||google.com^": "INVALID"
-        },
-        "1586384462": {
-            "||google.com^": "INVALID"
-        },
-        "1586515789": {
-            "||google.com^": "INVALID"
-        },
-        "1586602721": {
-            "||google.com^": "INVALID"
-        },
-        "1586717867": {
-            "hpn-collector.cliqz.com": "INACTIVE"
-        },
-        "1586717868": {
-            "||google.com^": "INVALID"
-        },
-        "1586862206": {
-            "hpn-collector.cliqz.com": "INACTIVE"
-        },
-        "1586862207": {
-            "||google.com^": "INVALID"
-        },
-        "1586977111": {
-            "hpn-collector.cliqz.com": "INACTIVE"
-        },
-        "1586977112": {
-            "||google.com^": "INVALID"
-        },
-        "1587120626": {
-            "||google.com^": "INVALID"
-        },
-        "1587207362": {
-            "||google.com^": "INVALID"
-        },
-        "1587294348": {
-            "||google.com^": "INVALID"
-        },
-        "1587410343": {
-            "||google.com^": "INVALID"
-        },
-        "1587579850": {
-            "||google.com^": "INVALID"
-        },
-        "1587666461": {
-            "||google.com^": "INVALID"
-        },
-        "1587810548": {
-            "||google.com^": "INVALID"
-        },
-        "1587925990": {
-            "||google.com^": "INVALID"
-        },
-        "1588070611": {
-            "||google.com^": "INVALID"
-        },
-        "1588185241": {
-            "||google.com^": "INVALID"
-        },
-        "1588273267": {
-            "||google.com^": "INVALID"
-        },
-        "1588359738": {
-            "||google.com^": "INVALID"
-        },
-        "1588446377": {
-            "||google.com^": "INVALID"
+        "||google.com^": {
+            "included_at_epoch": 1588446377.0,
+            "included_at_iso": "2020-05-02T19:06:17",
+            "last_retested_at_epoch": 1588535044.036791,
+            "last_retested_at_iso": "2020-05-03T19:44:04.036791",
+            "status": "INVALID"
         }
     }
 }
