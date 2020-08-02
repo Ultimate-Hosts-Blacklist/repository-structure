@@ -10,8 +10,8 @@
         "||google.com^": {
             "included_at_epoch": 1588446377.0,
             "included_at_iso": "2020-05-02T19:06:17",
-            "last_retested_at_epoch": 1595373879.726148,
-            "last_retested_at_iso": "2020-07-21T23:24:39.726148",
+            "last_retested_at_epoch": 1596410598.6455,
+            "last_retested_at_iso": "2020-08-02T23:23:18.645500",
             "status": "INVALID"
         }
     }
