@@ -8,8 +8,6 @@ env:
   GIT_NAME: "${{ secrets.GIT_BOT_NAME }}"
   GIT_EMAIL: "${{ secrets.GIT_BOT_EMAIL }}"
   GITHUB_TOKEN: "${{ secrets.BOT_REPO_PAT }}"
-  DEBUG_PYFUNCEBLE_ON_SCREEN:  "YES"
-  PYFUNCEBLE_LOGGING_LVL: debug 
 
 jobs:
   single:
