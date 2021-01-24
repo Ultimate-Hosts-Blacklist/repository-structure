@@ -47,4 +47,4 @@ jobs:
 
       - name: Run Launcher
         run: |
-          ultimate-hosts-blacklist-test-launcher
+          ultimate-hosts-blacklist-test-launcher -d
