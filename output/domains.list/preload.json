@@ -1,0 +1,13 @@
+{
+    "checker_type": "AVAILABILITY",
+    "destination": "domains.list",
+    "hash": "df90ca5e17dade58e3eb089d2bc79408a55c9628e6460cfb2949a236",
+    "line_number": 75,
+    "output_dir": "/home/runner/work/repository-structure/repository-structure/output/domains.list",
+    "previous_hash": "df90ca5e17dade58e3eb089d2bc79408a55c9628e6460cfb2949a236",
+    "session_id": "1df1fb5d81b3662758033aff",
+    "source": "domains.list",
+    "subject": "domains.list",
+    "subject_type": "domain",
+    "type": "file"
+}
