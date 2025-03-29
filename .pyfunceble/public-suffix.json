@@ -2706,6 +2706,9 @@
         "net.gl",
         "org.gl"
     ],
+    "global": [
+        "appwrite.global"
+    ],
     "gn": [
         "ac.gn",
         "com.gn",
@@ -3025,7 +3028,6 @@
         "beagleboard.io",
         "bitbucket.io",
         "bluebite.io",
-        "box.ca",
         "boxfuse.io",
         "brave.io",
         "browsersafetymark.io",
@@ -5748,6 +5750,8 @@
         "dweb.link",
         "inbrowser.link",
         "ipfs.nftstorage.link",
+        "ipfs.storacha.link",
+        "ipfs.w3s.link",
         "myfritz.link",
         "mypep.link"
     ],
@@ -8024,6 +8028,7 @@
         "vps.myjino.ru"
     ],
     "run": [
+        "appwrite.run",
         "build.run",
         "code.run",
         "database.run",
