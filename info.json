@@ -1,17 +1,17 @@
 {
     "currently_under_test": false,
     "days_until_next_test": 2,
-    "end_datetime": "2026-11-15T06:04:09.856371",
-    "end_epoch": 1794722649.856371,
+    "end_datetime": "2026-11-16T06:03:20.004294",
+    "end_epoch": 1794809000.004294,
     "name": "repository-structure",
-    "previous_end_datetime": "2026-11-14T06:00:52.886408",
-    "previous_end_epoch": 1794636052.886408,
-    "previous_start_datetime": "2026-11-14T05:59:42.840901",
-    "previous_start_epoch": 1794635982.840901,
+    "previous_end_datetime": "2026-11-15T06:04:09.856371",
+    "previous_end_epoch": 1794722649.856371,
+    "previous_start_datetime": "2026-11-15T06:02:56.859250",
+    "previous_start_epoch": 1794722576.85925,
     "pyfunceble": {
         "config": {}
     },
     "raw_link": "https://raw.githubusercontent.com/funilrys/PyFunceble/dev/examples/lists/simple",
-    "start_datetime": "2026-11-15T06:02:56.859250",
-    "start_epoch": 1794722576.85925
+    "start_datetime": "2026-11-16T06:02:18.594225",
+    "start_epoch": 1794808938.594225
 }
